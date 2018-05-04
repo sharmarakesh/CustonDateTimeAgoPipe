@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { TimeAgoFilter } from './time-ago-filter';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TimeAgoFilter
   ],
   imports: [
     BrowserModule
