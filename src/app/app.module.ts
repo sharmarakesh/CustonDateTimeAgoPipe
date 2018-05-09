@@ -7,20 +7,30 @@ import { TimeAgoFilter } from './time-ago-filter';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { CurrencyFormaterPipe } from './currency-formater-pipe';
 import {NgAutoCompleteModule} from 'ng-auto-complete';
+import { NgSelectModule, NG_SELECT_DEFAULT_CONFIG } from '@ng-select/ng-select';
+import { CustomAutoCompleteComponent } from './custom-auto-complete/custom-auto-complete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimeAgoFilter,
     FileUploadComponent,
-    CurrencyFormaterPipe
+    CurrencyFormaterPipe,
+    CustomAutoCompleteComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    NgAutoCompleteModule
+    NgAutoCompleteModule,
+    NgSelectModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide: NG_SELECT_DEFAULT_CONFIG,
+    useValue: {
+        notFoundText: 'search text not found'
+    }
+}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
