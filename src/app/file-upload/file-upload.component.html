@@ -1,4 +1,11 @@
-<input type="file" #file (change)="onChange($event)" multiple />
+<input type="file" #file (change)="onChange($event)" />
 <ul>
     <li *ngFor="let f of files">{{ f.name }}</li>
 </ul>
+<div class="warning" *ngIf="isLarger">File grater than 25 MB is not allowed</div>
+<div class="warning" *ngIf="isNotImage">Only image files are allowed</div>
+<button type="button" [disabled]='isNotImage' (click)="uploadImage()" class="btn btn-large btn-block btn-primary">button</button>
+
+<div *ngIf="isUploaded">
+    <img *ngIf="isImageAvailable" class="myImg" [src]="imagePath" alt="Image">
+</div>
