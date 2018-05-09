@@ -1,0 +1,4 @@
+<input type="file" #file (change)="onChange($event)" multiple />
+<ul>
+    <li *ngFor="let f of files">{{ f.name }}</li>
+</ul>

@@ -9,6 +9,7 @@ import * as moment from 'moment';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  price = 3433343243233;
   // myDate;
   // now;
   // seconds;
