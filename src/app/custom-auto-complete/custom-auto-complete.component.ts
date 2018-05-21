@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./custom-auto-complete.component.css']
 })
 export class CustomAutoCompleteComponent implements OnInit {
+  cous = [{'priority': 1, 'displayName': 'Alaska', 'code': 'AK'}, {'priority': 2, 'displayName': 'BB-bBBB', 'code': 'BK'}];
   stateCode: any = ['AL-Alabama', 'AK-Alaska', 'AZ-Arizona',
    'AR-Arkansas', 'CA-California', 'CO-Colorado', 'CT-Connecticut',
     'DE-Delaware', 'FL-Florida', 'GA-Georgia', 'HI-Hawaii', 'ID-Idaho',

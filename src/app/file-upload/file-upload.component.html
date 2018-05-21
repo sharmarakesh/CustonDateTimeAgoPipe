@@ -9,6 +9,6 @@
 <div class="warning" *ngIf="isNotImage">Only image files are allowed</div>
 <button type="button" [disabled]='isNotImage' (click)="uploadImage()" class="btn btn-large btn-block btn-primary">Upload</button>
 
-<div *ngIf="isUploaded">
-    <img *ngIf="isImageAvailable" class="myImg" [src]="imagePath" alt="Image">
-</div>
+<!-- <div *ngIf="isUploaded"> -->
+<img *ngIf="isImageAvailable" class="myImg" [src]="imagePath" alt="Image">
+<!-- </div> -->

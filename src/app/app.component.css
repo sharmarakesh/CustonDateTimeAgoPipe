@@ -1,1 +1,8 @@
 /* http://webdevzoom.com/javascript-format-number/ */
+
+.radio-form {
+    border: 1px solid #eee;
+    padding: 5px 10px 0 8px;
+    width: 100px;
+    border-radius: 5px;
+}

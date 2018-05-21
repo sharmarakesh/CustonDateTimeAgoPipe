@@ -13,13 +13,23 @@ export class FileUploadComponent implements OnInit {
   imagePath = '';
   isImageAvailable = false;
   isUploaded = false;
+
+  fileAllowedForProfilePics = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/tif'];
   onChange(evt) {
-    console.log(evt);
-    console.log(evt.target.files[0].type.substr(0, 5).toLowerCase() === 'image');
-    console.log(evt.target.files[0].size);
+    // console.log(evt);
+    // console.log(evt.target.files[0].type.substr(0, 5).toLowerCase() === 'image');
+    // console.log(evt.target.files[0].size);
+
     // console.log(evt.target.files[0].size > 26214400);
-    this.imagePath = this.imageBaePath + evt.target.files[0].name;
-    if ( evt.target.files[0].type.substr(0, 5).toLowerCase() === 'image' ) {
+    // this.imagePath = this.imageBaePath + evt.target.files[0].name;
+    const fileReader = new FileReader();
+    fileReader.onloadend = (e) => {
+      this.imagePath = fileReader.result;
+    };
+    fileReader.readAsDataURL(evt.target.files[0]);
+    this.imagePath = fileReader.result;
+    console.log(this.fileAllowedForProfilePics.indexOf(evt.target.files[0].type.toLowerCase()));
+    if ( this.fileAllowedForProfilePics.indexOf(evt.target.files[0].type.toLowerCase()) >= 0) {
       this.isNotImage = false;
       this.isImageAvailable = true;
     } else {

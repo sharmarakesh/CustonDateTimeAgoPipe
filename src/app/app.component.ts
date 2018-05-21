@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import * as moment from 'moment';
 import { NgAutocompleteComponent, CreateNewAutocompleteGroup, SelectedAutocompleteItem } from 'ng-auto-complete';
-
+import { RatingService } from './services/rating-service';
+import { DatepickerOptions } from 'ng2-datepicker';
+import * as frLocale from 'date-fns/locale/fr';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +14,13 @@ export class AppComponent implements OnInit {
   title = 'app';
   price = 3433343243233;
   inPutdate = '2018-05-04T23:20:00';
+  years = [0, 1, 2, 3, 4];
+  tabList = [{label: 'car', value: '1002', id: ''}, {label: 'automotive', value: '1003', id: ''},
+   {label: 'bus', value: '1004', id: ''}, {label: 'heavyVechile', value: '1005', id: ''}];
+   selectedProductType: string;
+
+   listOfProducts = ['car', 'automotive', 'heavyVechile'];
+  @Output() productAdded = new EventEmitter();
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
 
     public group = [
@@ -28,8 +37,21 @@ export class AppComponent implements OnInit {
             {titleKey: 'title', childrenKey: null}
         ),
     ];
+     date = new Date(Date.now());
+    options: DatepickerOptions = {
+      minYear: 1970,
+      maxYear: 2030,
+      displayFormat: 'MMM D[,] YYYY',
+      barTitleFormat: 'MMMM YYYY',
+      dayNamesFormat: 'dd',
+      firstCalendarDay: 0, // 0 - Sunday, 1 - Monday
+     // locale: frLocale,
+      minDate: new Date(Date.now()), // Minimal selectable date
+      // maxDate: new Date(Date.now()),  // Maximal selectable date
+      barTitleIfEmpty: 'Click to select a date'
+    };
 
-    constructor() {
+    constructor(private ratingService: RatingService) {
 
     }
 
@@ -43,6 +65,23 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-
+      this.selectedProductType = '';
     }
+
+    addProduct() {
+      // this.tabList.push({label: 'new_prod', value: '1000'});
+      // this.productAdded.emit();
+      this.ratingService.setMessage(this.tabList.filter(data => data.label === this.selectedProductType));
+    }
+    onProductChange(event) {
+      console.log('CHANGED PRODUCT : ', event.target.value );
+      this.selectedProductType = event.target.value;
+    }
+
+    selectedDate(evt) {
+      console.log(evt);
+    }
+
+
+
 }

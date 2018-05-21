@@ -1,0 +1,8 @@
+<div class="tab" #tabHolder>
+    <div class="tabWrapper" (click)="activate($event, i)" *ngFor="let tab of tabList; let i = index">
+        <div class="tablinks" [id]="i === 0 ? 'defaultOpen' : '' " (click)="openActiveTab($event, tab)">{{tab.label}}</div>
+    </div>
+</div>
+<div *ngFor="let tab of tabList" [id]="tab.label" class="tabcontent">
+    {{tab | json}}
+</div>

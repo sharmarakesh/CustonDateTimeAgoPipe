@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -23,11 +23,11 @@
         </div>
     </div>
 
-</div>
+</div> -->
 
 <!-- <ng-autocomplete (selected)="Selected($event)" [classes]="['']" [group]="group"></ng-autocomplete> -->
 
-<br />
+<!-- <br />
 <br />
 <div class="container">
 
@@ -45,3 +45,45 @@
     </div>
 
 </div>
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="radio-form" *ngFor="let i of years">
+                    <label>
+                      <input type="radio" name="optradio" value="i">{{ '   ' }}{{ i }} {{ ' years' }}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div> -->
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <select name="" id="input${1/(\w+)/\u\1/g}" (change)="onProductChange($event)" class="form-control" required="required">
+          <option value="sp">Select Product</option>
+          <option [value]="product" *ngFor="let product of listOfProducts">{{ product }}</option>
+        </select>
+
+            <button type="button" class="btn btn-default" (click)="addProduct()">Add Product</button>
+        </div>
+
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <app-navigation-bar></app-navigation-bar>
+            <!-- <div><button type="button" class="btn btn-default" (click)="addProduct()">Add More Product</button></div> -->
+            <br />
+            <br />
+            <br />
+            <app-tabs></app-tabs>
+        </div>
+
+
+    </div>
+
+</div>
+
+<ng-datepicker [(ngModel)]="date" [options]='options'></ng-datepicker>

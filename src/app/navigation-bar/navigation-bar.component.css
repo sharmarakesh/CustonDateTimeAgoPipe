@@ -1,0 +1,37 @@
+.navigation-wrapper {
+    width: 100%;
+    /* border: 1px solid #ccc; */
+    padding: 20px 30px 20px 30px;
+}
+
+.line {
+    border: 3px solid #e4e4e4;
+    height: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.circle {
+    align-self: center;
+    width: 10px;
+    height: 10px;
+    border: 5px solid blue;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.circle-disabled {
+    align-self: center;
+    width: 10px;
+    height: 10px;
+    border: 5px solid grey;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.link {
+    margin-top: 5px;
+    font-size: 12px;
+}

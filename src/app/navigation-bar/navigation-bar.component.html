@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="navigation-wrapper" *ngFor="let navi of navigationList">
+            <span>{{ navi.id }}</span> <span>{{ navi.identificationNo }}</span>
+            <div class="line">
+                <div [ngClass]="{'circle': lnk.state === 'c', 'circle-disabled': lnk.state === 'n'}" *ngFor="let lnk of navi.links">
+                    <a class="link" [href]="lnk.link">{{ lnk.link }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,6 +9,12 @@ import { CurrencyFormaterPipe } from './currency-formater-pipe';
 import {NgAutoCompleteModule} from 'ng-auto-complete';
 import { NgSelectModule, NG_SELECT_DEFAULT_CONFIG } from '@ng-select/ng-select';
 import { CustomAutoCompleteComponent } from './custom-auto-complete/custom-auto-complete.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { Tabs1Component } from './tabs1/tabs1.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { RatingService } from './services/rating-service';
+import { NavigationService } from './services/navigation-service';
+import { NgDatepickerModule } from 'ng2-datepicker';
 
 @NgModule({
   declarations: [
@@ -16,13 +22,17 @@ import { CustomAutoCompleteComponent } from './custom-auto-complete/custom-auto-
     TimeAgoFilter,
     FileUploadComponent,
     CurrencyFormaterPipe,
-    CustomAutoCompleteComponent
+    CustomAutoCompleteComponent,
+    TabsComponent,
+    Tabs1Component,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgAutoCompleteModule,
-    NgSelectModule
+    NgSelectModule,
+    NgDatepickerModule
   ],
   providers: [
     {
@@ -30,7 +40,7 @@ import { CustomAutoCompleteComponent } from './custom-auto-complete/custom-auto-
     useValue: {
         notFoundText: 'search text not found'
     }
-}],
+}, RatingService, NavigationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
