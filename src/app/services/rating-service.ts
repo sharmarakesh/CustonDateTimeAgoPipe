@@ -9,8 +9,20 @@ export class RatingService {
   private productList: any = [];
 
   private subject = new Subject<any>();
+  private tabChange = new Subject<string>();
 
   constructor(private navigationService: NavigationService) {}
+
+  public getTabChange(): Observable<string> {
+    return this.tabChange.asObservable();
+  }
+  public setTabChange(tabId: string) {
+    this.tabChange.next(tabId);
+  }
+
+  public clearTabChange() {
+    this.tabChange.next();
+  }
 
   public getProductList() {
     return this.productList;
@@ -39,15 +51,14 @@ export class RatingService {
   public setMessage(data: any) {
       const id = new Date().getTime();
       const id1: string = id.toString();
-     // const id1 = this.productList.length;
-      data[0].id = id1;
+      data.id = id1;
       console.log('TIME STAMP :', id1);
-      this.setProductList(data[0]);
+      this.setProductList(data);
       console.log('PRODUCT LIST : ', this.getProductList());
-      const navi = this.navigationService.getNavigationByType(data[0].label);
+      const navi = this.navigationService.getNavigationByType(data.label);
       console.log('FILTERED NAVIGATION : ', navi);
-      navi[0].identificationNo = id1;
-      this.setNavigationList(navi[0]);
-      this.subject.next(data[0]);
+      navi.identificationNo = id1;
+      this.setNavigationList(navi);
+      this.subject.next(data);
   }
 }

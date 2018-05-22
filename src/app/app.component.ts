@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   @Output() productAdded = new EventEmitter();
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
 
-    public group = [
+  public group = [
         CreateNewAutocompleteGroup(
             'Search / choose in / from list',
             'completer',
@@ -37,19 +37,6 @@ export class AppComponent implements OnInit {
             {titleKey: 'title', childrenKey: null}
         ),
     ];
-     date = new Date(Date.now());
-    options: DatepickerOptions = {
-      minYear: 1970,
-      maxYear: 2030,
-      displayFormat: 'MMM D[,] YYYY',
-      barTitleFormat: 'MMMM YYYY',
-      dayNamesFormat: 'dd',
-      firstCalendarDay: 0, // 0 - Sunday, 1 - Monday
-     // locale: frLocale,
-      minDate: new Date(Date.now()), // Minimal selectable date
-      // maxDate: new Date(Date.now()),  // Maximal selectable date
-      barTitleIfEmpty: 'Click to select a date'
-    };
 
     constructor(private ratingService: RatingService) {
 
@@ -71,17 +58,19 @@ export class AppComponent implements OnInit {
     addProduct() {
       // this.tabList.push({label: 'new_prod', value: '1000'});
       // this.productAdded.emit();
-      this.ratingService.setMessage(this.tabList.filter(data => data.label === this.selectedProductType));
+      console.log(this.tabList.find(data => data.label === this.selectedProductType));
+
+      this.ratingService.setMessage(JSON.parse(JSON.stringify(this.tabList.find(data => data.label === this.selectedProductType))));
     }
     onProductChange(event) {
       console.log('CHANGED PRODUCT : ', event.target.value );
       this.selectedProductType = event.target.value;
     }
 
-    selectedDate(evt) {
-      console.log(evt);
-    }
 
+    showOriginalTabList() {
+      console.log('showOriginalTabList() : ', this.tabList);
+    }
 
 
 }

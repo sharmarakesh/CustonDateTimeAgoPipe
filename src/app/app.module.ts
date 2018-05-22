@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TimeAgoFilter } from './time-ago-filter';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { CurrencyFormaterPipe } from './currency-formater-pipe';
-import {NgAutoCompleteModule} from 'ng-auto-complete';
+import { NgAutoCompleteModule } from 'ng-auto-complete';
 import { NgSelectModule, NG_SELECT_DEFAULT_CONFIG } from '@ng-select/ng-select';
 import { CustomAutoCompleteComponent } from './custom-auto-complete/custom-auto-complete.component';
 import { TabsComponent } from './tabs/tabs.component';
@@ -14,7 +14,9 @@ import { Tabs1Component } from './tabs1/tabs1.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { RatingService } from './services/rating-service';
 import { NavigationService } from './services/navigation-service';
-import { NgDatepickerModule } from 'ng2-datepicker';
+// import { NgDatepickerModule } from 'ng2-datepicker';
+import { MyDatePickerModule } from 'mydatepicker';
+import { MyDatePickerExampleComponent } from './my-date-picker-example/my-date-picker-example.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { NgDatepickerModule } from 'ng2-datepicker';
     CustomAutoCompleteComponent,
     TabsComponent,
     Tabs1Component,
-    NavigationBarComponent
+    NavigationBarComponent,
+    MyDatePickerExampleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgAutoCompleteModule,
     NgSelectModule,
-    NgDatepickerModule
+    // NgDatepickerModule,
+    MyDatePickerModule
   ],
   providers: [
     {

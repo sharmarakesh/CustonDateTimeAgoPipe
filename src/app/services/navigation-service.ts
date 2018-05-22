@@ -21,8 +21,10 @@ export class NavigationService {
     ];
 
   getNavigationByType(type: any) {
-    console.log('type TO FIND PRODUCT NAVIGATION : ', type);
-    console.log('Found Product Navigation : ', this.navigationList.filter(product => product.type.toLowerCase() === type.toLowerCase()));
-    return this.navigationList.filter(product => product.type.toLowerCase() === type.toLowerCase());
+    // console.log('type TO FIND PRODUCT NAVIGATION : ', type);
+    // console.log('Found Product Navigation : ', this.navigationList.filter(product => product.type.toLowerCase() === type.toLowerCase()));
+    const data = JSON.parse(JSON.stringify(this.navigationList.find(product => product.type.toLowerCase() === type.toLowerCase())));
+    console.log('getNavigationByType :', data);
+    return data;
   }
 }

@@ -8,22 +8,19 @@ import { RatingService } from '../services/rating-service';
 })
 export class TabsComponent implements OnInit {
   // @Input() tabList;
-  tabList: any;
+  productList: any;
   @ViewChild('tabHolder') tabHolder: ElementRef;
   // tabList = [{label: 'car', value: '1002'}, {label: 'automotive', value: '1003'},
   //  {label: 'bus', value: '1004'}, {label: 'heavyVechile', value: '1005'}];
-
-
   // , 'truck', 'boat', 'bike'];
   constructor(private ratingService: RatingService) { }
 
   ngOnInit() {
-    // Get the element with id='defaultOpen' and click on it
-    // this.tabList = this.ratingService.getProductList().slice();
     this.ratingService.getMessage().subscribe((data) => {
-      this.tabList = this.ratingService.getProductList().slice();
+      this.productList = this.ratingService.getProductList().slice();
+      console.log(this.productList);
     });
-  this.refershTab();
+  // this.refershTab();
   }
 
   refershTab() {
@@ -43,9 +40,9 @@ export class TabsComponent implements OnInit {
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(' active', '');
     }
-    document.getElementById(productName.label).style.display = 'block';
+    document.getElementById(productName.id).style.display = 'block';
     evt.currentTarget.className += ' active';
-    document.getElementById(productName.label).style.height = this.tabHolder.nativeElement.clientHeight + 'px';
+    document.getElementById(productName.id).style.height = this.tabHolder.nativeElement.clientHeight + 'px';
 
 }
 
