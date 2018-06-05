@@ -1,9 +1,26 @@
 <div class="tab" #tabHolder>
-    <div class="tabWrapper" (click)="activate($event, i)" *ngFor="let tab of productList; let i = index">
+    <div class="tabWrapper" (click)="activate(tab.id, i)" *ngFor="let tab of productList; let i = index">
         <div class="tablinks" [id]="i === 0 ? 'defaultOpen' : '' " (click)="openActiveTab($event, tab)">{{tab.label}} {{ ' - ' }} {{ i }}</div>
         <!-- <div class="tablinks" [id]="tab.id" (click)="openActiveTab($event, tab)">{{tab.label}} {{ ' - ' }} {{ i }}</div> -->
     </div>
 </div>
 <div *ngFor="let tab1 of productList" [id]="tab1.id" class="tabcontent">
-    {{tab1 | json}}
+    <div *ngIf="tab1.label === 'automotive'">
+        AUTOMOTIVE - {{ tab1.id }}
+        <div *ngFor="let lnk of tab1.navigationlist.links; let i = index">
+            <div *ngIf="i === getIndexofCompletedState(tab1.navigationlist.links)" >{{lnk.link}}</div>
+        </div>
+    </div>
+    <div *ngIf="tab1.label === 'heavyVechile'">
+        HEAVY VEHICLE - {{ tab1.id }}
+        <div *ngFor="let lnk of tab1.navigationlist.links; let i = index">
+            <div *ngIf="i === getIndexofCompletedState(tab1.navigationlist.links)" >{{lnk.link}}</div>
+        </div>
+    </div>
+    <div *ngIf="tab1.label === 'car'">
+        CAR - {{ tab1.id }}
+        <div *ngFor="let lnk of tab1.navigationlist.links; let i = index">
+            <div *ngIf="i === getIndexofCompletedState(tab1.navigationlist.links)" >{{lnk.link}}</div>
+        </div>
+    </div>
 </div>
