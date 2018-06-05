@@ -19,6 +19,7 @@ export class TabsComponent implements OnInit {
     this.ratingService.getMessage().subscribe((data) => {
       this.productList = this.ratingService.getProductList().slice();
       console.log(this.productList);
+      this.refershTab();
     });
   // this.refershTab();
   }
@@ -27,10 +28,11 @@ export class TabsComponent implements OnInit {
     setTimeout(() => {
       // console.log(document.getElementById(this.tabList[0]));
       document.getElementById('defaultOpen').click();
-    }, 50);
+    }, 100);
   }
 
   openActiveTab(evt, productName) {
+   // console.log(evt, '', productName);
     let i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName('tabcontent');
     for (i = 0; i < tabcontent.length; i++) {
@@ -47,12 +49,28 @@ export class TabsComponent implements OnInit {
 }
 
 activate(evt, g) {
+  // console.log(evt);
+  this.ratingService.setTabChange(evt);
   // console.log(this.tabHolder);
  // evt.currentTarget.className += ' activeBorder';
 }
 
 onProductAdded() {
 
+}
+
+getIndexofCompletedState(navList) {
+  console.log(navList);
+  let index = 0;
+  for ( let i = 0; i < navList.length; i++) {
+    if ( navList[i].state === 'c' ) {
+      index = i;
+    } else {
+      break;
+    }
+  }
+  console.log(index);
+  return index;
 }
 
 }
