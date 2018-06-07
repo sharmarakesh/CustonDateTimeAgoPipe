@@ -40,12 +40,11 @@ export class TabsComponent implements OnInit {
     }
     tablinks = document.getElementsByClassName('tablinks');
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(' active', '');
+        tablinks[i].className = tablinks[i].className.replace('active', ' inactive');
     }
     document.getElementById(productName.id).style.display = 'block';
     evt.currentTarget.className += ' active';
     document.getElementById(productName.id).style.height = this.tabHolder.nativeElement.clientHeight + 'px';
-
 }
 
 activate(evt, g) {

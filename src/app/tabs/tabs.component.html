@@ -8,19 +8,19 @@
     <div *ngIf="tab1.label === 'automotive'">
         AUTOMOTIVE - {{ tab1.id }}
         <div *ngFor="let lnk of tab1.navigationlist.links; let i = index">
-            <div *ngIf="i === getIndexofCompletedState(tab1.navigationlist.links)" >{{lnk.link}}</div>
+            <div *ngIf="i === getIndexofCompletedState(tab1.navigationlist.links)">{{lnk.link}}</div>
         </div>
     </div>
     <div *ngIf="tab1.label === 'heavyVechile'">
         HEAVY VEHICLE - {{ tab1.id }}
         <div *ngFor="let lnk of tab1.navigationlist.links; let i = index">
-            <div *ngIf="i === getIndexofCompletedState(tab1.navigationlist.links)" >{{lnk.link}}</div>
+            <div *ngIf="i === getIndexofCompletedState(tab1.navigationlist.links)">{{lnk.link}}</div>
         </div>
     </div>
     <div *ngIf="tab1.label === 'car'">
         CAR - {{ tab1.id }}
         <div *ngFor="let lnk of tab1.navigationlist.links; let i = index">
-            <div *ngIf="i === getIndexofCompletedState(tab1.navigationlist.links)" >{{lnk.link}}</div>
+            <div *ngIf="i === getIndexofCompletedState(tab1.navigationlist.links)">{{lnk.link}}</div>
         </div>
     </div>
 </div>
