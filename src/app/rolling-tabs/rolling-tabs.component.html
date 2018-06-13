@@ -1,0 +1,10 @@
+<div class='rolling-container'>
+    <div class="rolling-wraper">
+        <button class="previous" (click)="previous('previous')">prev</button>
+        <div class="content" *ngFor="let driver of newDriversList">
+            <div class="left-content">LEFT CONTTENT</div>
+            <div class="right-content">RIGHT CONTENT</div>
+        </div>
+        <button class="next" (click)="next('next')">next</button>
+    </div>
+</div>

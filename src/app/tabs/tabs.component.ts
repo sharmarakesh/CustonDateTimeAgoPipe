@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { RatingService } from '../services/rating-service';
+import { NavigationService } from '../services/navigation-service';
 
 @Component({
   selector: 'app-tabs',
@@ -9,11 +10,12 @@ import { RatingService } from '../services/rating-service';
 export class TabsComponent implements OnInit {
   // @Input() tabList;
   productList: any;
+  currentLinkClickedIndex: any = -1;
   @ViewChild('tabHolder') tabHolder: ElementRef;
   // tabList = [{label: 'car', value: '1002'}, {label: 'automotive', value: '1003'},
   //  {label: 'bus', value: '1004'}, {label: 'heavyVechile', value: '1005'}];
   // , 'truck', 'boat', 'bike'];
-  constructor(private ratingService: RatingService) { }
+  constructor(private ratingService: RatingService, private navigationService: NavigationService) { }
 
   ngOnInit() {
     this.ratingService.getMessage().subscribe((data) => {
@@ -22,6 +24,15 @@ export class TabsComponent implements OnInit {
       this.refershTab();
     });
   // this.refershTab();
+    this.navigationService.getCurrentLinkClickedIndex().subscribe((data) => {
+      this.currentLinkClickedIndex = data;
+      for ( let i = 0; i < this.productList.length; i++) {
+        if ( this.productList[i].id === data.identificationNo ) {
+          this.productList[i].navigationlist.currentLinkClickedIndex = data.idx;
+          break;
+        }
+      }
+    });
   }
 
   refershTab() {
@@ -58,17 +69,28 @@ onProductAdded() {
 
 }
 
-getIndexofCompletedState(navList) {
-  console.log(navList);
+getIndexofCompletedState(currentTab) {
+  console.log(currentTab);
   let index = 0;
-  for ( let i = 0; i < navList.length; i++) {
-    if ( navList[i].state === 'c' ) {
-      index = i;
-    } else {
-      break;
+  // if ( this.currentLinkClickedIndex !== -1 ) {
+  //   index = this.currentLinkClickedIndex;
+  // } else {
+    for ( let i = 0; i < currentTab.navigationlist.links.length; i++) {
+      if ( currentTab.navigationlist.currentLinkClickedIndex !== -1 ) {
+        index = currentTab.navigationlist.currentLinkClickedIndex;
+        break;
+      } else {
+        if ( currentTab.navigationlist.links[i].state === 'c' ) {
+          index = i;
+        } else {
+          break;
+        }
+      }
+
     }
-  }
-  console.log(index);
+  // }
+
+  console.log('CURRENT LINK CLICKED/COMPLETED: ', index);
   return index;
 }
 

@@ -1,8 +1,30 @@
 /* http://webdevzoom.com/javascript-format-number/ */
 
+
+/* https://www.concretepage.com/angular-2/angular-2-radio-button-and-checkbox-example */
+
+
+/* https://codepen.io/trinzia/pen/NNzxWp */
+
 .radio-form {
     border: 1px solid #eee;
     padding: 5px 10px 0 8px;
     width: 100px;
     border-radius: 5px;
+}
+
+.radio-style {
+    width: 100px;
+    float: left;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.radio-style-checked {
+    width: 100px;
+    float: left;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: blue;
 }

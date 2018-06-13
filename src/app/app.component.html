@@ -90,3 +90,23 @@
 
 
 <app-my-date-picker-example></app-my-date-picker-example>
+
+<div [ngClass]="{'col-xs-2 radio-style-checked': currentSelection === 0, 'col-xs-2 radio-style': currentSelection != 0 }">
+    <input type="radio" (click)="onSelect(0)" name=years value="years" id="timeAtAddressYears" /> 0 Years
+</div>
+<div [ngClass]="{'col-xs-2 radio-style-checked': currentSelection === 1, 'col-xs-2 radio-style': currentSelection != 1 }">
+    <input type="radio" (click)="onSelect(1)" name=years value="years" id="timeAtAddressYears" /> 1 Years
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <app-rolling-tabs></app-rolling-tabs>
+        </div>
+
+    </div>
+
+</div>

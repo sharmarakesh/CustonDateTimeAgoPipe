@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <div class="navigation-wrapper" *ngFor="let navi of navigationList">
-            
+
             <div *ngIf="navi.identificationNo === currentTab" class="line">
-                    <span>{{ navi.identificationNo }}</span>
-                <div [ngClass]="{'circle': lnk.state === 'c', 'circle-disabled': lnk.state === 'n'}" *ngFor="let lnk of navi.links">
-                    <a class="link" [href]="lnk.link">{{ lnk.link }}</a>
+                <span>{{ navi.identificationNo }}</span>
+                <div (click)="naviGateToSelectedLink(i, lnk.state, navi.identificationNo)" [ngClass]="{'circle': lnk.state === 'c', 'circle-disabled': lnk.state === 'n'}" *ngFor="let lnk of navi.links; let i = index">
+                    <a class="link">{{ lnk.link }}</a>
                 </div>
             </div>
         </div>

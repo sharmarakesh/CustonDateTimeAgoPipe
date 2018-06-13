@@ -21,9 +21,11 @@
     border-radius: 100px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .circle-disabled {
+    cursor: pointer;
     align-self: center;
     width: 10px;
     height: 10px;

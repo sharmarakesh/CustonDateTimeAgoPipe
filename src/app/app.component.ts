@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   tabList = [{label: 'car', value: '1002', id: ''}, {label: 'automotive', value: '1003', id: ''},
    {label: 'bus', value: '1004', id: ''}, {label: 'heavyVechile', value: '1005', id: ''}];
    selectedProductType: string;
-
+   currentSelection: any;
    listOfProducts = ['car', 'automotive', 'heavyVechile'];
   @Output() productAdded = new EventEmitter();
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
@@ -71,6 +71,12 @@ export class AppComponent implements OnInit {
     showOriginalTabList() {
       console.log('showOriginalTabList() : ', this.tabList);
     }
+
+
+  onSelect(evt) {
+    this.currentSelection = evt;
+    console.log(evt);
+  }
 
 
 }
