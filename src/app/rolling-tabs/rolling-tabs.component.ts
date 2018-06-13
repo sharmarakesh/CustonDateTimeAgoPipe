@@ -7,24 +7,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RollingTabsComponent implements OnInit {
 
+  currentPage = 0;
   newDriversList: any = [];
-  driverObject: any;
-  leftDriverObject: {};
-  rightDriverObject: {};
+
+  leftDriverObject = {
+    name: 'left-test'
+  };
+  rightDriverObject = {
+    name: 'right-test'
+  };
   constructor() { }
 
   ngOnInit() {
-    this.driverObject.leftDriverObject = this.leftDriverObject;
-    this.driverObject.rightDriverObject = this.rightDriverObject;
-    this.newDriversList.push(this.driverObject);
+    const driverObject: any = {};
+    driverObject.leftDriverObject = this.leftDriverObject;
+    driverObject.rightDriverObject = this.rightDriverObject;
+    console.log('INIT', driverObject);
+    this.newDriversList.push(driverObject);
   }
 
   previous(state: string) {
-    console.log(state);
+   // console.log(state);
+    if ( this.currentPage !== 0 ) {
+      this.currentPage--;
+    }
   }
 
   next(state: string) {
-    console.log(state);
+    // console.log(state);
+    if ( this.currentPage < this.newDriversList.length - 1 ) {
+      this.currentPage++;
+    }
   }
 
+  addFrom() {
+    if ( this.newDriversList.length < 11 ) {
+      const driverObject: any = {};
+      driverObject.leftDriverObject = this.leftDriverObject;
+      driverObject.rightDriverObject = this.rightDriverObject;
+      console.log('NEW', driverObject);
+      this.newDriversList.push(driverObject);
+    } else {
+      alert('hello enough adding forms');
+    }
+  }
 }
