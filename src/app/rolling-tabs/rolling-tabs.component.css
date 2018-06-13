@@ -23,8 +23,17 @@
 }
 
 .content {
+    width: 100%;
+}
+
+.content-hidden {
+    width: 0;
+}
+
+.content-wrapper {
     display: flex;
     justify-content: space-between;
+    height: 100%;
     width: 100%;
 }
 
@@ -32,4 +41,13 @@
 .right-content {
     width: 100%;
     text-align: left;
+    border: 10px solid transparent;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    padding: 10px 0 10px 0;
+}
+
+.left-content {
+    padding-right: 10px;
+    border-right-color: blue;
 }
