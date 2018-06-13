@@ -1,10 +1,43 @@
 <div class='rolling-container'>
     <div class="rolling-wraper">
-        <button class="previous" (click)="previous('previous')">prev</button>
-        <div class="content" *ngFor="let driver of newDriversList">
-            <div class="left-content">LEFT CONTTENT</div>
-            <div class="right-content">RIGHT CONTENT</div>
+        <button class="previous" [disabled]="currentPage === 0" (click)="previous('previous')">prev</button>
+        <div [ngClass]="{'content' : i === currentPage, 'content-hidden' : i !== currentPage}" *ngFor="let driver of newDriversList; let i = index;">
+            <div class="content-wrapper" *ngIf='i === currentPage'>
+                    <div class="left-content">LEFT CONTTENT {{ i+1 }}
+                        <div>
+                            <form>
+                                <legend>Form title</legend>
+                            
+                                <div class="form-group">
+                                    <label for="">label</label>
+                                    <input type="text" [(ngModel)]='newDriversList[i].leftDriverObject.name' name='name-l-{{i}}' class="form-control" id="" placeholder="Input field">
+                                </div>
+    
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="right-content">RIGHT CONTENT {{ i+1 }}
+                        <div *ngIf="i <= newDriversList.length - 2">
+                            <form>
+                                <legend>Form title</legend>
+                            
+                                <div class="form-group">
+                                    <label for="">label</label>
+                                    <input type="text" [(ngModel)]='newDriversList[i].rightDriverObject.name' name='name-r-{{i}}' class="form-control" id="" placeholder="Input field">
+                                </div>
+    
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        
+                        <button *ngIf="i === newDriversList.length - 1" (click)="addFrom()" type="button" class="btn btn-primary">Add Form</button>
+                        
+                    </div>
+            </div>
         </div>
-        <button class="next" (click)="next('next')">next</button>
+        <button class="next" [disabled]="currentPage === newDriversList.length" (click)="next('next')">next</button>
     </div>
 </div>
+
+<div>{{ newDriversList | json }}</div>
