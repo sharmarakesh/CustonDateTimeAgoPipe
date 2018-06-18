@@ -1,42 +1,182 @@
 <div class='rolling-container'>
     <div class="rolling-wraper">
-        <button class="previous" [disabled]="currentPage === 0" (click)="previous('previous')">prev</button>
+        <button *ngIf="newDriversList.length > 1" class="previous" [disabled]="currentPage === 0" (click)="previous('previous')">prev</button>
         <div [ngClass]="{'content' : i === currentPage, 'content-hidden' : i !== currentPage}" *ngFor="let driver of newDriversList; let i = index;">
             <div class="content-wrapper" *ngIf='i === currentPage'>
-                    <div class="left-content">LEFT CONTTENT {{ i+1 }}
-                        <div>
-                            <form>
-                                <legend>Form title</legend>
-                            
-                                <div class="form-group">
-                                    <label for="">label</label>
-                                    <input type="text" [(ngModel)]='newDriversList[i].leftDriverObject.name' name='name-l-{{i}}' class="form-control" id="" placeholder="Input field">
-                                </div>
-    
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
+                <div class="left-content">LEFT CONTTENT {{ i+1 }}
+                    <div>
+                        <form>
+                            <legend>Form title</legend>
+
+                            <div class="form-group">
+                                <label for="">FRIST NAME</label>
+                                <input type="text" [(ngModel)]='driver.leftDriverObject.fname' name='name-l-{{i}}' class="form-control" id="" placeholder="Input field">
+                            </div>
+                            <div class="form-group">
+                                <label for="">LAST NAME</label>
+                                <input type="text" [(ngModel)]='driver.leftDriverObject.lname' name='name-l-{{i}}' class="form-control" id="" placeholder="Input field">
+                            </div>
+
+                            <div>RATED DRIVER</div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                                Rated
+                              </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                                Excluded
+                              </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                                Non Rated
+                              </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                                Never Licensed
+                              </label>
+                            </div>
+
+                            <div>RELATIONSHIP</div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                                Rated
+                              </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                                Excluded
+                              </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                                Non Rated
+                              </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                                Other
+                              </label>
+                            </div>
+
+                            <div>GENDER</div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="gender" id="input${1/(\w+)/\u\1/g}" value="">
+                              Male
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="gender" id="input${1/(\w+)/\u\1/g}" value="">
+                              Femele
+                            </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
-                    <div class="right-content">RIGHT CONTENT {{ i+1 }}
-                        <div *ngIf="i <= newDriversList.length - 2">
-                            <form>
-                                <legend>Form title</legend>
-                            
-                                <div class="form-group">
-                                    <label for="">label</label>
-                                    <input type="text" [(ngModel)]='newDriversList[i].rightDriverObject.name' name='name-r-{{i}}' class="form-control" id="" placeholder="Input field">
-                                </div>
-    
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
-                        
-                        <button *ngIf="i === newDriversList.length - 1" (click)="addFrom()" type="button" class="btn btn-primary">Add Form</button>
-                        
+                </div>
+                <div class="right-content">RIGHT CONTENT {{ i+1 }}
+                    <div *ngIf="i <= newDriversList.length - 2">
+                        <form>
+                            <legend>Form title</legend>
+
+                            <div class="form-group">
+                                <label for="">FRIST NAME</label>
+                                <input type="text" [(ngModel)]='driver.leftDriverObject.fname' name='name-l-{{i}}' class="form-control" id="" placeholder="Input field">
+                            </div>
+                            <div class="form-group">
+                                <label for="">LAST NAME</label>
+                                <input type="text" [(ngModel)]='driver.leftDriverObject.lname' name='name-l-{{i}}' class="form-control" id="" placeholder="Input field">
+                            </div>
+
+                            <div>RATED DRIVER</div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                              Rated
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                              Excluded
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                              Non Rated
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                              Never Licensed
+                            </label>
+                            </div>
+
+                            <div>RELATIONSHIP</div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                              Rated
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                              Excluded
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                              Non Rated
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                              <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                              Other
+                            </label>
+                            </div>
+
+                            <div>GENDER</div>
+                            <div class="radio">
+                                <label>
+                            <input type="radio" name="gender" id="input${1/(\w+)/\u\1/g}" value="">
+                            Male
+                          </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                            <input type="radio" name="gender" id="input${1/(\w+)/\u\1/g}" value="">
+                            Femele
+                          </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
+
+                    <button *ngIf="i === newDriversList.length - 1" (click)="addFrom()" type="button" class="btn btn-primary">Add Form</button>
+
+                </div>
             </div>
         </div>
-        <button class="next" [disabled]="currentPage === newDriversList.length" (click)="next('next')">next</button>
+        <button *ngIf="newDriversList.length > 1" class="next" [disabled]="currentPage === newDriversList.length" (click)="next('next')">next</button>
     </div>
 </div>
 

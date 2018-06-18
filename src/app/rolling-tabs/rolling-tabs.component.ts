@@ -11,7 +11,56 @@ export class RollingTabsComponent implements OnInit {
   newDriversList: any = [];
 
   leftDriverObject = {
-    name: 'left-test'
+    name: 'left-test',
+    fname: '',
+    lname: '',
+    ratedDriver: '',
+    relationship: '',
+    gender: '',
+    maritalStatus: '',
+    DOB: '',
+    SSN: '',
+    dlStatus: '',
+    ageLicensed: '',
+    DL: '',
+    sdipPoints: '',
+    dlState: '',
+    licensesus: '',
+    srs22: '',
+    fr44: '',
+    education: '',
+    occupationIndustry: '',
+    occupationTitle: '',
+    defensivedriver: '',
+    goodStudent: '',
+    Student100milesaway: '',
+    DriverEducation: '',
+    GoodDriver: '',
+    MatureDriver: '',
+    accidents: [{
+      dateOfAccident: '',
+      driver: '',
+      AccidentDescription: '',
+      PDAmount: '',
+      BIAmount: '',
+      CollisionAmount: '',
+      MPAmount: '',
+      VehicleInvolved: ''
+    }
+    ],
+    violations: [{
+      DateofViol: '',
+      Driver: '',
+      ViolationDescription: ''
+    }],
+    complosses: [{
+      AddaLoss: '',
+      DateofLoss: '',
+      Driver: '',
+      LossDescription: '',
+      Amount: '',
+      VehicleInvolved: ''
+    }]
   };
   rightDriverObject = {
     name: 'right-test'
@@ -21,7 +70,7 @@ export class RollingTabsComponent implements OnInit {
   ngOnInit() {
     const driverObject: any = {};
     driverObject.leftDriverObject = this.leftDriverObject;
-    driverObject.rightDriverObject = this.rightDriverObject;
+    // driverObject.rightDriverObject = this.rightDriverObject;
     console.log('INIT', driverObject);
     this.newDriversList.push(driverObject);
   }

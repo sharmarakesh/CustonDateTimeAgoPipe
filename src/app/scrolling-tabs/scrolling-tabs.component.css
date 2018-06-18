@@ -1,0 +1,43 @@
+.wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.scrolling-container {
+    width: 500px;
+    border: 1px solid red;
+    /* padding: 5px 0 5px 0; */
+    height: 200px;
+    overflow: hidden;
+    /* overflow-x: auto; */
+}
+
+.holder {
+    width: 2750px;
+}
+
+.roller {
+    width: 250px;
+    border: 3px solid green;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    float: left;
+    height: 200px;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.previous,
+.next {
+    border: 0;
+    outline: 0;
+    height: inherit;
+    background-color: chocolate;
+    color: white;
+    position: relative;
+}

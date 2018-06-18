@@ -1,0 +1,112 @@
+<div class="wrapper">
+    <button *ngIf="newDriversList.length > 1" class="previous" [disabled]="currentPage === 0" (click)="previous('previous')">prev</button>
+    <div class="scrolling-container" id="cnn">
+
+        <div class="holder">
+            <div class="roller" *ngFor="let driver of newDriversList; let i = index">
+                <!-- <form role="form">
+                    <legend>{{ driver }}</legend>
+
+                    <div class="form-group">
+                        <label for="">FRIST NAME</label>
+                        <input type="text" [(ngModel)]='driver.leftDriverObject.fname' name='name-l-{{i}}' class="form-control" id="" placeholder="Input field">
+                    </div>
+                    <div class="form-group">
+                        <label for="">LAST NAME</label>
+                        <input type="text" [(ngModel)]='driver.leftDriverObject.lname' name='name-l-{{i}}' class="form-control" id="" placeholder="Input field">
+                    </div>
+
+                    <div>RATED DRIVER</div>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                        Rated
+                      </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                        Excluded
+                      </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                        Non Rated
+                      </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="ratedDriver" id="input${1/(\w+)/\u\1/g}" value="">
+                        Never Licensed
+                      </label>
+                    </div>
+
+                    <div>RELATIONSHIP</div>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                        Rated
+                      </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                        Excluded
+                      </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                        Non Rated
+                      </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="relationship" id="input${1/(\w+)/\u\1/g}" value="">
+                        Other
+                      </label>
+                    </div>
+
+                    <div>GENDER</div>
+                    <div class="radio">
+                        <label>
+                      <input type="radio" name="gender" id="input${1/(\w+)/\u\1/g}" value="">
+                      Male
+                    </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                      <input type="radio" name="gender" id="input${1/(\w+)/\u\1/g}" value="">
+                      Femele
+                    </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form> -->
+
+                <button type="button" (click)="removeDriver(i)" class="btn btn-danger">Remove Driver</button>
+
+                <form action="" method="POST" role="form">
+                    <legend>{{ driver }}</legend>
+
+                    <div class="form-group">
+                        <label for="">label</label>
+                        <input type="text" class="form-control" id="" placeholder="Input field">
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+
+            <button type="button" (click)="addDriver()" class="btn btn-success">Add Driver</button>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+    <button *ngIf="newDriversList.length > 1" class="next" [disabled]="currentPage === newDriversList.length - 1" (click)="next('next')">next</button>
+</div>

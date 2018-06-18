@@ -45,6 +45,7 @@
     border-top-width: 0;
     border-bottom-width: 0;
     padding: 10px 0 10px 0;
+    overflow-y: auto;
 }
 
 .left-content {
