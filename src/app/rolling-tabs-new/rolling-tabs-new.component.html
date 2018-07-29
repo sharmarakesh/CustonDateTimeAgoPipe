@@ -1,12 +1,29 @@
 <div class="rolling-wrapper">
-  <div *ngIf="newDriversList.length > 1" class="rolling-prev" (click)="previous('previous')">prev</div>
+  <button *ngIf="newDriversList.length > 1" [disabled]="currentPage === 0" class="rolling-prev" (click)="previous('previous')"><<</button>
   <div class="rolling-container" id="cnn">
     <div class="roller">
-        <div *ngFor="let driver of newDriversList" class="rolling-content">{{driver}}</div>
+        <div *ngFor="let driver of newDriversList; let i = index" class="rolling-content">{{driver}}
+
+            <button type="button" (click)="removeDriver(i)" class="btn btn-danger">Remove Driver</button>
+
+            <form action="" method="POST" role="form">
+                <legend>{{ driver }}</legend>
+
+                <div class="form-group">
+                    <label for="">label</label>
+                    <input type="text" class="form-control" id="" placeholder="Input field">
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
         <button type="button" (click)="addDriver()" class="btn btn-success">Add Driver</button>
     </div>
     
     <!-- <div style="clear: both;"></div> -->
   </div>
-  <div *ngIf="newDriversList.length > 1" class="rolling-next" (click)="next('next')">next</div>
+  <button *ngIf="newDriversList.length > 1" [disabled]="currentPage === newDriversList.length - 1" class="rolling-next" (click)="next('next')">>></button>
 </div>

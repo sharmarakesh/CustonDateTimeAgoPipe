@@ -4,16 +4,20 @@
     display: flex;
     height: 50vh;
     justify-content: space-between;
+    border: 1px solid rgb(165, 165, 165);
 }
 
 .rolling-prev, .rolling-next {
     width: 50px;
     padding: 5px;
     padding-top: 0 auto;
-    background-color: yellow;
+    background-color: rgb(226, 226, 226);
     text-align: center;
     cursor: pointer;
     vertical-align: middle;
+    outline: none;
+    border: none;
+    font-size: 12px;
 }
 
 .rolling-container {
@@ -27,20 +31,26 @@
 .roller {
     width: calc(50% * 10);
     height: 100%;
-    background-color: blue;
+    background-color: rgb(243, 243, 243);
 }
 
 .rolling-content {
     width: calc(50% / 5);
-    background-color: RED;
+    background-color: rgb(250, 173, 173);
     float: left;
     height: inherit;
     padding: 10px;
-}
-
-.roller :not(:last-child) {
-    border: 2px solid green;
+    border: 2px solid rgb(77, 77, 77);
     border-top-width: 0;
     border-left-width: 0;
     border-bottom-width: 0;
 }
+
+
+
+/* .roller :not(:last-child) {
+    border: 2px solid green;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-bottom-width: 0;
+} */

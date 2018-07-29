@@ -20,8 +20,11 @@ export class RollingTabsNewComponent implements OnInit {
     this.newDriversList.push(drv);
   }
 
+  removeDriver(i) {
+    this.newDriversList.splice(i, 1);
+  }
+
   previous(state: string) {
-    // console.log(state);
      if ( this.currentPage !== 0 ) {
        this.currentPage--;
        console.log('PREV : ', this.currentPage);
@@ -32,8 +35,6 @@ export class RollingTabsNewComponent implements OnInit {
    }
 
    next(state: string) {
-     // console.log(state);
-    //  if ( this.newDriversList.length <= 10) {
       if ( this.currentPage < this.newDriversList.length ) {
         this.currentPage++;
         console.log('NEXT : ', this.currentPage);
@@ -42,10 +43,6 @@ export class RollingTabsNewComponent implements OnInit {
         console.log(elemWidth);
          elmnt.scrollLeft += elemWidth;
       }
-    //  } else {
-    //    alert('Hello: - Enough adding drivers');
-    //  }
-
    }
 
 }
