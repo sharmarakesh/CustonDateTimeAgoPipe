@@ -1,0 +1,12 @@
+<div class="rolling-wrapper">
+  <div *ngIf="newDriversList.length > 1" class="rolling-prev" (click)="previous('previous')">prev</div>
+  <div class="rolling-container" id="cnn">
+    <div class="roller">
+        <div *ngFor="let driver of newDriversList" class="rolling-content">{{driver}}</div>
+        <button type="button" (click)="addDriver()" class="btn btn-success">Add Driver</button>
+    </div>
+    
+    <!-- <div style="clear: both;"></div> -->
+  </div>
+  <div *ngIf="newDriversList.length > 1" class="rolling-next" (click)="next('next')">next</div>
+</div>

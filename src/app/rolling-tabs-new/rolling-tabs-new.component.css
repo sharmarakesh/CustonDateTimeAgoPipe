@@ -1,0 +1,46 @@
+.rolling-wrapper {
+    width: 100%;
+    border: 1px solid #eee;
+    display: flex;
+    height: 50vh;
+    justify-content: space-between;
+}
+
+.rolling-prev, .rolling-next {
+    width: 50px;
+    padding: 5px;
+    padding-top: 0 auto;
+    background-color: yellow;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.rolling-container {
+    background-color: aqua;
+    width: 100%;
+    overflow: hidden;
+    /* display: flex;
+    justify-content: flex-start; */
+}
+
+.roller {
+    width: calc(50% * 10);
+    height: 100%;
+    background-color: blue;
+}
+
+.rolling-content {
+    width: calc(50% / 5);
+    background-color: RED;
+    float: left;
+    height: inherit;
+    padding: 10px;
+}
+
+.roller :not(:last-child) {
+    border: 2px solid green;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-bottom-width: 0;
+}

@@ -19,6 +19,7 @@ import { MyDatePickerModule } from 'mydatepicker';
 import { MyDatePickerExampleComponent } from './my-date-picker-example/my-date-picker-example.component';
 import { RollingTabsComponent } from './rolling-tabs/rolling-tabs.component';
 import { ScrollingTabsComponent } from './scrolling-tabs/scrolling-tabs.component';
+import { RollingTabsNewComponent } from './rolling-tabs-new/rolling-tabs-new.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ScrollingTabsComponent } from './scrolling-tabs/scrolling-tabs.componen
     NavigationBarComponent,
     MyDatePickerExampleComponent,
     RollingTabsComponent,
-    ScrollingTabsComponent
+    ScrollingTabsComponent,
+    RollingTabsNewComponent
   ],
   imports: [
     BrowserModule,

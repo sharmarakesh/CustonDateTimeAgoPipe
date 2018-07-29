@@ -4,7 +4,7 @@
 }
 
 .scrolling-container {
-    width: 500px;
+    width: 1000px;
     border: 1px solid red;
     /* padding: 5px 0 5px 0; */
     height: 200px;
@@ -17,7 +17,7 @@
 }
 
 .roller {
-    width: 250px;
+    width: 500px;
     border: 3px solid green;
     border-top-width: 0;
     border-left-width: 0;
