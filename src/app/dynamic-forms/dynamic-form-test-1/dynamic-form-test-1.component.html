@@ -1,0 +1,296 @@
+<!-- infinityRSVPForm start  -->
+<form [formGroup]="infinityRSVPForm" *ngIf="isInfinityRSVP">
+  <label><h4 class="formHeading">{{ infinityRSVPFormName }}</h4></label>
+  <div *ngFor="let crtl of infinityRSVPControls; let i = index">
+    <div class="form-group">
+      <div [ngSwitch]="infinityRSVPData.questions[crtl].setting">
+        <div *ngSwitchCase="'show'">
+          <div *ngIf="(infinityRSVPData.questions[crtl].setting === 'show') ? true : false">
+            <!-- <b>show</b> -->
+            <label [for]="crtl">{{ infinityRSVPData.questions[crtl].label }}</label>
+            <!-- input box start-->
+            <div [ngSwitch]="infinityRSVPData.questions[crtl].lookup">
+              <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+              <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+            </div>
+            <!-- input box end-->
+            <!-- select option start-->
+            <div *ngIf="((infinityRSVPData.questions[crtl].lookup !== null) && (infinityRSVPData.questions[crtl].lookup !== ''))">
+              <select class="form-control" [formControlName]="crtl">
+                <option *ngFor="let option of infinityRSVPData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+            </div>
+            <!-- select option end-->
+          </div>
+        </div>
+        <div *ngSwitchCase="'hide'">
+          <div *ngIf="(infinityRSVPData.questions[crtl].setting === 'show') ? true : false">
+            <!-- <b>hide</b> -->
+            <label [for]="crtl">{{ infinityRSVPData.questions[crtl].label }}</label>
+            <!-- input box start-->
+            <div [ngSwitch]="infinityRSVPData.questions[crtl].lookup">
+              <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+              <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+            </div>
+            <!-- input box end-->
+            <!-- select option start-->
+            <div *ngIf="((infinityRSVPData.questions[crtl].lookup !== null) && (infinityRSVPData.questions[crtl].lookup !== ''))">
+              <select class="form-control" [formControlName]="crtl">
+                <option *ngFor="let option of infinityRSVPData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+            </div>
+            <!-- select option end-->
+          </div>
+        </div>
+        <div *ngSwitchCase="'conditionalhide'">
+          <!-- <b>conditionalhide</b> -->
+          <div *ngIf="infinityRSVPForm.value[infinityRSVPData.questions[crtl].conditionalOn].toLowerCase() === infinityRSVPData.questions[crtl].value">
+            <label [for]="crtl">{{ infinityRSVPData.questions[crtl].label }}</label>
+            <!-- input box start-->
+            <div [ngSwitch]="infinityRSVPData.questions[crtl].lookup">
+              <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+              <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+            </div>
+            <!-- input box end-->
+            <!-- select option start-->
+            <div *ngIf="((infinityRSVPData.questions[crtl].lookup !== null) && (infinityRSVPData.questions[crtl].lookup !== ''))">
+              <select class="form-control" [formControlName]="crtl">
+                <option *ngFor="let option of infinityRSVPData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+            </div>
+            <!-- select option end-->
+          </div>
+        </div>
+        <div *ngSwitchCase="'conditionalshow'">
+          <!-- <b>conditionalshow</b> -->
+          <div *ngIf="infinityRSVPForm.value[infinityRSVPData.questions[crtl].conditionalOn].toLowerCase() === infinityRSVPData.questions[crtl].value">
+              <label [for]="crtl">{{ infinityRSVPData.questions[crtl].label }}</label>
+              <!-- input box start-->
+              <div [ngSwitch]="infinityRSVPData.questions[crtl].lookup">
+                <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+                <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+              </div>
+              <!-- input box end-->
+              <!-- select option start-->
+              <div *ngIf="((infinityRSVPData.questions[crtl].lookup !== null) && (infinityRSVPData.questions[crtl].lookup !== ''))">
+                <select class="form-control" [formControlName]="crtl">
+                  <option *ngFor="let option of infinityRSVPData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+              <!-- select option end-->
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+<!-- infinityRSVPForm end  -->
+
+
+
+<!-- infinitySpecialForm start  -->
+<form [formGroup]="infinitySpecialForm" *ngIf="isInfinitySpecial">
+    <label><h4 class="formHeading">{{ infinitySpecialFormName }}</h4></label>
+    <div *ngFor="let crtl of infinitySpecialControls; let i = index">
+      <div class="form-group">
+        <div [ngSwitch]="infinitySpecialData.questions[crtl].setting">
+          <div *ngSwitchCase="'show'">
+            <div *ngIf="(infinitySpecialData.questions[crtl].setting === 'show') ? true : false">
+              <!-- <b>show</b> -->
+              <label [for]="crtl">{{ infinitySpecialData.questions[crtl].label }}</label>
+              <!-- input box start-->
+              <div [ngSwitch]="infinitySpecialData.questions[crtl].lookup">
+                <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+                <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+              </div>
+              <!-- input box end-->
+              <!-- select option start-->
+              <div *ngIf="((infinitySpecialData.questions[crtl].lookup !== null) && (infinitySpecialData.questions[crtl].lookup !== ''))">
+                <select class="form-control" [formControlName]="crtl">
+                  <option *ngFor="let option of infinitySpecialData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+              <!-- select option end-->
+            </div>
+          </div>
+          <div *ngSwitchCase="'hide'">
+            <div *ngIf="(infinitySpecialData.questions[crtl].setting === 'show') ? true : false">
+              <!-- <b>hide</b> -->
+              <label [for]="crtl">{{ infinitySpecialData.questions[crtl].label }}</label>
+              <!-- input box start-->
+              <div [ngSwitch]="infinitySpecialData.questions[crtl].lookup">
+                <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+                <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+              </div>
+              <!-- input box end-->
+              <!-- select option start-->
+              <div *ngIf="((infinitySpecialData.questions[crtl].lookup !== null) && (infinitySpecialData.questions[crtl].lookup !== ''))">
+                <select class="form-control" [formControlName]="crtl">
+                  <option *ngFor="let option of infinitySpecialData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+              <!-- select option end-->
+            </div>
+          </div>
+          <div *ngSwitchCase="'conditionalhide'">
+            <!-- <b>conditionalhide</b> -->
+            <div *ngIf="infinitySpecialForm.value[infinitySpecialData.questions[crtl].conditionalOn].toLowerCase() === infinitySpecialData.questions[crtl].value">
+              <label [for]="crtl">{{ infinitySpecialData.questions[crtl].label }}</label>
+              <!-- input box start-->
+              <div [ngSwitch]="infinitySpecialData.questions[crtl].lookup">
+                <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+                <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+              </div>
+              <!-- input box end-->
+              <!-- select option start-->
+              <div *ngIf="((infinitySpecialData.questions[crtl].lookup !== null) && (infinitySpecialData.questions[crtl].lookup !== ''))">
+                <select class="form-control" [formControlName]="crtl">
+                  <option *ngFor="let option of infinitySpecialData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+              <!-- select option end-->
+            </div>
+          </div>
+          <div *ngSwitchCase="'conditionalshow'">
+            <!-- <b>conditionalshow</b> -->
+            <div *ngIf="infinitySpecialForm.value[infinitySpecialData.questions[crtl].conditionalOn].toLowerCase() === infinitySpecialData.questions[crtl].value">
+                <label [for]="crtl">{{ infinitySpecialData.questions[crtl].label }}</label>
+                <!-- input box start-->
+                <div [ngSwitch]="infinitySpecialData.questions[crtl].lookup">
+                  <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+                  <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+                </div>
+                <!-- input box end-->
+                <!-- select option start-->
+                <div *ngIf="((infinitySpecialData.questions[crtl].lookup !== null) && (infinitySpecialData.questions[crtl].lookup !== ''))">
+                  <select class="form-control" [formControlName]="crtl">
+                    <option *ngFor="let option of infinitySpecialData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                      {{ option }}
+                    </option>
+                  </select>
+                </div>
+                <!-- select option end-->
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </form>
+  <!-- infinitySpecialForm end  -->
+
+
+  <!-- mercuryForm start  -->
+<form [formGroup]="mercuryForm" *ngIf="isMercury">
+    <label><h4 class="formHeading">{{ mercuryFormName }}</h4></label>
+    <div *ngFor="let crtl of mercuryControls; let i = index">
+      <div class="form-group">
+        <div [ngSwitch]="mercuryData.questions[crtl].setting">
+          <div *ngSwitchCase="'show'">
+            <div *ngIf="(mercuryData.questions[crtl].setting === 'show') ? true : false">
+              <!-- <b>show</b> -->
+              <label [for]="crtl">{{ mercuryData.questions[crtl].label }}</label>
+              <!-- input box start-->
+              <div [ngSwitch]="mercuryData.questions[crtl].lookup">
+                <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+                <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+              </div>
+              <!-- input box end-->
+              <!-- select option start-->
+              <div *ngIf="((mercuryData.questions[crtl].lookup !== null) && (mercuryData.questions[crtl].lookup !== ''))">
+                <select class="form-control" [formControlName]="crtl">
+                  <option *ngFor="let option of mercuryData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+              <!-- select option end-->
+            </div>
+          </div>
+          <div *ngSwitchCase="'hide'">
+            <div *ngIf="(mercuryData.questions[crtl].setting === 'show') ? true : false">
+              <!-- <b>hide</b> -->
+              <label [for]="crtl">{{ mercuryData.questions[crtl].label }}</label>
+              <!-- input box start-->
+              <div [ngSwitch]="mercuryData.questions[crtl].lookup">
+                <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+                <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+              </div>
+              <!-- input box end-->
+              <!-- select option start-->
+              <div *ngIf="((mercuryData.questions[crtl].lookup !== null) && (mercuryData.questions[crtl].lookup !== ''))">
+                <select class="form-control" [formControlName]="crtl">
+                  <option *ngFor="let option of mercuryData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+              <!-- select option end-->
+            </div>
+          </div>
+          <div *ngSwitchCase="'conditionalhide'">
+            <!-- <b>conditionalhide</b> -->
+            <div *ngIf="mercuryForm.value[mercuryData.questions[crtl].conditionalOn].toLowerCase() === mercuryData.questions[crtl].value">
+              <label [for]="crtl">{{ mercuryData.questions[crtl].label }}</label>
+              <!-- input box start-->
+              <div [ngSwitch]="mercuryData.questions[crtl].lookup">
+                <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+                <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+              </div>
+              <!-- input box end-->
+              <!-- select option start-->
+              <div *ngIf="((mercuryData.questions[crtl].lookup !== null) && (mercuryData.questions[crtl].lookup !== ''))">
+                <select class="form-control" [formControlName]="crtl">
+                  <option *ngFor="let option of mercuryData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+              <!-- select option end-->
+            </div>
+          </div>
+          <div *ngSwitchCase="'conditionalshow'">
+            <!-- <b>conditionalshow</b> -->
+            <div *ngIf="mercuryForm.value[mercuryData.questions[crtl].conditionalOn].toLowerCase() === mercuryData.questions[crtl].value">
+                <label [for]="crtl">{{ mercuryData.questions[crtl].label }}</label>
+                <!-- input box start-->
+                <div [ngSwitch]="mercuryData.questions[crtl].lookup">
+                  <input class="form-control" *ngSwitchCase="null" [formControlName]="crtl" type="text">
+                  <input class="form-control" *ngSwitchCase="''" [formControlName]="crtl" type="text">
+                </div>
+                <!-- input box end-->
+                <!-- select option start-->
+                <div *ngIf="((mercuryData.questions[crtl].lookup !== null) && (mercuryData.questions[crtl].lookup !== ''))">
+                  <select class="form-control" [formControlName]="crtl">
+                    <option *ngFor="let option of mercuryData.questions[crtl].lookup.split('_'); let i = index" [value]="option">
+                      {{ option }}
+                    </option>
+                  </select>
+                </div>
+                <!-- select option end-->
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- mercuryForm end  -->
+
+<button type="button" (click)="getFormData()" class="btn btn-default">button</button>
+<p *ngIf="infinityRSVPForm"> {{ 'infinityRSVPForm - '}} {{ infinityRSVPForm.value | json}}
+</p>

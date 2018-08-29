@@ -106,6 +106,17 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <!-- <app-rolling-tabs></app-rolling-tabs> -->
             <!-- <app-scrolling-tabs></app-scrolling-tabs> -->
+            <div style="width: 500px;">
+
+                    <app-custom-dropdown-example></app-custom-dropdown-example>
+
+                    <br>
+    
+                <select name="mm" [(ngModel)]="mm" id="input" class="form-control" required="required">
+                    <option *ngFor="let d of dd" [ngValue]="d">{{d}}</option>
+                </select>
+                
+            </div>
         </div>
 
     </div>
@@ -114,10 +125,36 @@
     <div class="row">
         
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <app-rolling-tabs-new></app-rolling-tabs-new>
+            <!-- <app-rolling-tabs-new></app-rolling-tabs-new>
+            <app-my-date-picker-example></app-my-date-picker-example> -->
         </div>
         
     </div>
     
 
 </div>
+
+<!-- <app-dynamic-forms></app-dynamic-forms> -->
+
+<div class="container">
+
+        <div class="row">
+    
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <!-- <app-dynamic-form-test [questions]="questions"></app-dynamic-form-test>
+                    <hr>
+                    <app-dynamic-form-test [questions]="questions"></app-dynamic-form-test> -->
+                    <!-- <app-dynamic-form-test-1></app-dynamic-form-test-1> -->
+            </div>
+    
+        </div>
+        </div>
+
+
+
+
+<br>
+
+
+
+<br>

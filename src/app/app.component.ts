@@ -4,6 +4,7 @@ import { NgAutocompleteComponent, CreateNewAutocompleteGroup, SelectedAutocomple
 import { RatingService } from './services/rating-service';
 import { DatepickerOptions } from 'ng2-datepicker';
 import * as frLocale from 'date-fns/locale/fr';
+import { QuestionService } from './dynamic-forms/question.service';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,10 @@ export class AppComponent implements OnInit {
   @Output() productAdded = new EventEmitter();
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
 
+  private mm;
+
+  private dd = ["aa", "bb", "cc"];
+
   public group = [
         CreateNewAutocompleteGroup(
             'Search / choose in / from list',
@@ -38,8 +43,10 @@ export class AppComponent implements OnInit {
         ),
     ];
 
-    constructor(private ratingService: RatingService) {
-
+    questions: any[];
+    
+    constructor(private ratingService: RatingService, private service: QuestionService) {
+      this.questions = service.getQuestions();
     }
 
     /**
@@ -53,6 +60,11 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
       this.selectedProductType = '';
+      this.mm = "cc";
+      // let cc = setInterval(() => {
+      //   this.mm = "cc";
+      //   clearInterval(cc);
+      // }, 1000);
     }
 
     addProduct() {

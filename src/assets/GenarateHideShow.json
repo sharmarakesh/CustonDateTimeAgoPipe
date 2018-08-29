@@ -1,0 +1,248 @@
+{
+    "infinityRSVP": {
+        "carrierSectionSetting": "show",
+        "questions": {
+            "infrsvpEffectiveDate": {
+                "setting": "show",
+                "conditionalOn": "null",
+                "value": null,
+                "default": null,
+                "lookup": null,
+                "carrierSectionLabel": "Infinity RSVP",
+                "label": "Policy Effective Date",
+                "carrierId": 407,
+                "carrierPromptName": "applicant_effectivedate"
+            },
+            "infrsvpRepair": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": null,
+                "lookup": "Yes_No_No",
+                "carrierSectionLabel": "Infinity RSVP",
+                "label": "Direct Repair Endorsement",
+                "carrierId": 407,
+                "carrierPromptName": "repair_rsvp"
+            },
+            "infrsvpUSExp": {
+                "setting": "hide",
+                "conditionalOn": null,
+                "value": null,
+                "default": "0",
+                "lookup": null,
+                "carrierSectionLabel": "Infinity RSVP",
+                "label": "What is Driver {driver name} defaults total US Licensed in Months?",
+                "carrierId": 407,
+                "carrierPromptName": "usexp{driver_no}"
+            },
+            "infrsvpForeignExp": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": "0",
+                "lookup": null,
+                "carrierSectionLabel": "Infinity RSVP",
+                "label": "What is Driver {driver name} total Foreign Licensed in Months?",
+                "carrierId": 407,
+                "carrierPromptName": "forexp{driver_no}"
+            },
+            "infrsvpTotalExp": {
+                "setting": "conditionalhide",
+                "conditionalOn": "infrsvpRepair",
+                "value": "yes",
+                "default": "0",
+                "lookup": null,
+                "carrierSectionLabel": "Infinity RSVP",
+                "label": "What is Driver {driver name} total Continuous Licensed in Month?",
+                "carrierId": 407,
+                "carrierPromptName": "conexp{driver_no}"
+            },
+            "infrsvpArbitration": {
+                "setting": "conditionalshow",
+                "conditionalOn": "infrsvpRepair",
+                "value": "yes",
+                "default": "No",
+                "lookup": "Yes_No_No",
+                "carrierSectionLabel": "Infinity RSVP",
+                "label": "Waiver of Mandatory Arbitration Coverage",
+                "carrierId": 407,
+                "carrierPromptName": "waiver_rsvp"
+            }
+        }
+    },
+    "infinitySpecial": {
+        "carrierSectionSetting": "show",
+        "questions": {
+            "infspecialEffectiveDate": {
+                "setting": "show",
+                "conditionalOn": "html",
+                "value": null,
+                "default": null,
+                "lookup": null,
+                "carrierSectionLabel": "Infinity Special",
+                "label": "Policy Effective Date",
+                "carrierId": 408,
+                "carrierPromptName": "applicant_effectivedate"
+            },
+            "infspecialRepair": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": null,
+                "lookup": "Yes_No_No",
+                "carrierSectionLabel": "Infinity Special",
+                "label": "Direct Repair Endorsement",
+                "carrierId": 408,
+                "carrierPromptName": "repair_special"
+            },
+            "infspecialUSExp": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": "0",
+                "lookup": null,
+                "carrierSectionLabel": "Infinity Special",
+                "label": "What is Driver {driver name} defaults total US Licensed in Months?",
+                "carrierId": 408,
+                "carrierPromptName": "usexp{driver_no}"
+            },
+            "infspecialForeignExp": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": "0",
+                "lookup": null,
+                "carrierSectionLabel": "Infinity Special",
+                "label": "What is Driver {driver name} total Foreign Licensed in Months?",
+                "carrierId": 408,
+                "carrierPromptName": "forexp{driver_no}"
+            },
+            "infspecialTotalExp": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": "0",
+                "lookup": null,
+                "carrierSectionLabel": "Infinity Special",
+                "label": "What is Driver {driver name} total Continuous Licensed in Month?",
+                "carrierId": 408,
+                "carrierPromptName": "conexp{driver_no}"
+            },
+            "infspecialADBenefit": {
+                "setting": "show",
+                "conditionalOn": "html",
+                "value": null,
+                "default": "None",
+                "lookup": "Infspecial_Accidental_Death",
+                "carrierSectionLabel": "Infinity Special",
+                "label": "Accidental Death Benefit Coverage",
+                "carrierId": 407,
+                "carrierPromptName": "benefit"
+            }
+        }
+    },
+    "mercury": {
+        "carrierSectionSetting": "show",
+        "questions": {
+            "mercuryGroupDiscount": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": "None",
+                "lookup": "Mercury_Group_Discount",
+                "carrierSectionLabel": "Mercury",
+                "label": "Group Discount",
+                "carrierId": 13,
+                "carrierPromptName": "groupdiscount*CA"
+            },
+            "mercuryRVOwnership": {
+                "setting": "conditionalshow",
+                "conditionalOn": "html",
+                "value": null,
+                "default": "No",
+                "lookup": "Yes_No_No",
+                "carrierSectionLabel": "Mercury",
+                "label": "Do you own the mobile Home?",
+                "carrierId": 13,
+                "carrierPromptName": "ownership"
+            },
+            "mercuryRepairReplace": {
+                "setting": "conditionalshow",
+                "conditionalOn": "html",
+                "value": null,
+                "default": "Yes",
+                "lookup": "Yes_No_Yes",
+                "carrierSectionLabel": "Mercury",
+                "label": "Do you need Repair/Replacement cost coverage for the vehicle {vehicleyear vehiclemake}",
+                "carrierId": 13,
+                "carrierPromptName": "replace{vehicle_no}*CA"
+            },
+            "mercuryAwayNoCar": {
+                "setting": "conditionalshow",
+                "conditionalOn": "html",
+                "value": null,
+                "default": "No",
+                "lookup": "Yes_No_No",
+                "carrierSectionLabel": "Mercury",
+                "label": "Is the driver {driver name} away at school without a car?",
+                "carrierId": 13,
+                "carrierPromptName": "driveraway{driver_no}"
+            },
+            "mercuryUber": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": "No",
+                "lookup": "Yes_No_No",
+                "carrierSectionLabel": "Mercury",
+                "label": "Is vehicle {vehicleyear vehiclemake} used for Transportation Network purposes, such as Uber or Lyft?",
+                "carrierId": 13,
+                "carrierPromptName": "tnc{vehicle_no}"
+            },
+            "mercurySalvaged": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": "No",
+                "lookup": "Yes_No_No",
+                "carrierSectionLabel": "Mercury",
+                "label": "Is vehicle {vehicleyear vehiclemake} salvaged",
+                "carrierId": 13,
+                "carrierPromptName": "salvage{vehicle_no}"
+            },
+            "mercuryRealDrive": {
+                "setting": "show",
+                "conditionalOn": null,
+                "value": null,
+                "default": "Yes",
+                "lookup": "Yes_No_Yes",
+                "carrierSectionLabel": "Mercury",
+                "label": "Enroll in RealDrive Mileage program?",
+                "carrierId": 13,
+                "carrierPromptName": "realdrive"
+            },
+            "mercuryAgencyCode": {
+                "setting": "hide",
+                "conditionalOn": null,
+                "value": null,
+                "default": "",
+                "lookup": "",
+                "carrierSectionLabel": "Mercury",
+                "label": "Producer Code.",
+                "carrierId": 13,
+                "carrierPromptName": "agencyid"
+            },
+            "mercuryFilingType": {
+                "setting": "conditionalshow",
+                "conditionalOn": "html",
+                "value": null,
+                "default": "Owners Only",
+                "lookup": "Mercury_Filing_Type",
+                "carrierSectionLabel": "Mercury",
+                "label": "Filing type for {driver name}",
+                "carrierId": 13,
+                "carrierPromptName": "filingtype{driver_no}*CA"
+            }
+        }
+    }
+}

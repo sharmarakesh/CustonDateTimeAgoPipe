@@ -1,0 +1,21 @@
+<!-- <form #myForm="ngForm">
+
+  
+  <input type="text" formControlName="username" name="username" id="input" class="form-control" value="" required="required" pattern="" title="">
+  
+  <app-custom-dropdown></app-custom-dropdown>
+
+</form> -->
+
+<div>
+  <h2>Hello {{name}}</h2>
+  <form #form="ngForm" (ngSubmit)="log(form)">
+    <app-custom-dropdown [options]="state" name="someValue" [(ngModel)]="someValue" required></app-custom-dropdown>
+    <br>
+    <app-custom-dropdown [options]="state1" name="someValue1" [(ngModel)]="someValue1" required></app-custom-dropdown>
+    <br>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+  <br>
+  {{ form.value | json }}
+</div>
