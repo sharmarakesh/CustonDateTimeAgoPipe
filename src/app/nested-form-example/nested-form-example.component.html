@@ -1,0 +1,28 @@
+
+<form #myForm="ngForm">
+  <legend>Form title</legend>
+
+  <div *ngFor="let a of list.data; let i = index">
+    <div [ngModelGroup]="getName(i)">
+        <input name="a" [ngModel]="a" minlength="2" required>
+      </div>
+    <div>
+      <div *ngFor="let b of list.test; let j = index">
+        <app-child-component [i]="getName(i)" [idx]="j" [data]="b"></app-child-component>
+      </div>
+    </div>
+  </div>
+
+  
+</form>
+<button type="submit" [disabled]="!myForm.valid" class="btn btn-primary">Submit</button>
+{{myForm.value | json}}
+{{myForm.valid | json}}
+<form>
+    <div *ngFor="let a of data; let i = index">
+  
+        <input type="text" [(ngModel)]="a.autoVehicleCoverages[i].statedAmount" name="statedAmount"
+         class="form-control" value="" required="required" pattern="" [title]="a.autoVehicleCoverages[i].statedAmount">
+        
+      </div>
+</form>

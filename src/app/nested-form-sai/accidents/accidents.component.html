@@ -1,0 +1,83 @@
+<!-- <div [ngModelGroup]="name">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+         <div *ngIf="(driverList.accidents[0].accidentDate.setting === 'show')">
+        <label for="">Date of Acc.</label>
+        <input class="form-control" style="float:none" appInputRestrict="datemask" maxlength="10" (keyup)="dateMask($event)"
+        ngx-mydatepicker name="accidentDate" [ngClass]="{'datepicker-disabled': isSaved}"
+        [(ngModel)]="accident.accidentDateObj" [options]="myDatePickerOptions"
+        #acAccidentDate="ngx-mydatepicker" (click)="!isSaved ? acAccidentDate.toggleCalendar() : false" 
+        (ngModelChange)="validateAccidentDate(accident.accidentDateObj)" />
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+         <div *ngIf="(driverList.accidents[0].accidentDriver.setting === 'show')">
+        <label for="">Driver</label>
+        <input type="text" [(ngModel)]="accident.accidentDriver" name="accident.accidentDriver" class="form-control" [disabled]="isSaved" id="" placeholder="Input field">
+      </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+         <div *ngIf="(driverList.accidents[0].accidentDescription.setting === 'show')">
+        <label for="">Accident Description</label>
+        <select class="form-control" name="accidentDescription" [(ngModel)]="accident.accidentDescription" [disabled]="isSaved"
+        appSelectOptions [ops]='{lookup: driverList.accidents[0].accidentDescription.lookup, state: currentState, defaultvalue: driverList.accidents[0].accidentDescription.default}'></select>
+      </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+         <div *ngIf="(driverList.accidents[0].accidentPDAmount.setting === 'show')">
+        <label for="">PD Amount</label>
+        <input type="text" [(ngModel)]="accident.accidentPDAmount" name="accident.accidentPDAmount" class="form-control" [disabled]="isSaved" id="" placeholder="Input field" appInputRestrict="integer" maxlength="6" (change)="validateAmount(accident.accidentPDAmount)">
+      </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+         <div *ngIf="(driverList.accidents[0].accidentBIAmount.setting === 'show')">
+        <label for="">BI Amount</label>
+        <input type="text" [(ngModel)]="accident.accidentBIAmount" name="accident.accidentBIAmount" class="form-control" [disabled]="isSaved" id="" placeholder="Input field" appInputRestrict="integer" maxlength="6" (change)="validateAmount(accident.accidentBIAmount)">
+      </div>
+    </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+          <div *ngIf="(driverList.accidents[0].accidentCollisionAmount.setting === 'show')">
+        <label for="">Collision Amount</label>
+      
+        <input type="text" [(ngModel)]="accident.accidentCollisionAmount" name="accident.accidentCollisionAmount" class="form-control" [disabled]="isSaved" id="" placeholder="Input field" appInputRestrict="integer" maxlength="6" (change)="validateAmount(accident.accidentCollisionAmount)">
+      </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+          <div *ngIf="(driverList.accidents[0].accidentMPAmount.setting === 'show')">
+        <label for="">MP Amount</label>
+      
+        <input type="text" [(ngModel)]="accident.accidentMPAmount" name="accident.accidentMPAmount" class="form-control" [disabled]="isSaved" id="" placeholder="Input field" appInputRestrict="integer" maxlength="6" (change)="validateAmount(accident.accidentMPAmount)">
+      </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+         <div *ngIf="(driverList.accidents[0].accidentVehicle.setting === 'show')">
+        <label for="">Vehicle Involved</label>
+        <input type="text" [(ngModel)]="accident.accidentVehicle" name="accident.accidentVehicle" class="form-control" [disabled]="isSaved" id="" placeholder="Input field">
+      </div>
+    </div>
+  </div>
+  </div>
+<div *ngIf="!isSaved">
+  <button type="button" (click)="saveData()" [disabled]="isSaved" class="btn btn-primary">Save</button>
+  <button type="button" (click)="cancelData()" [disabled]="isSaved" class="btn btn-primary">Cancel</button>
+  </div>
+  <div  *ngIf="isSaved" >
+  <button type="button" (click)="editData()" [disabled]="!isSaved" class="btn btn-primary">Edit</button>
+  <button type="button" [disabled]="!isSaved" (click)="removeData()" class="btn btn-primary">Remove</button>
+  </div>
+</div> -->

@@ -1,0 +1,6 @@
+<form #f="ngForm">
+  <radio name="radioParent" [radioName]="'radioParent'" [data]="data" [(ngModel)]="radioParent"></radio>
+  <radio name="radioParent1" [radioName]="'radioParent1'" [data]="data1" [(ngModel)]="radioParent1"></radio>
+</form>
+
+{{ f | json }}

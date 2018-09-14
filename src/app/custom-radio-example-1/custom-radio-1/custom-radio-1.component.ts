@@ -4,20 +4,21 @@ import { NG_VALUE_ACCESSOR, SelectControlValueAccessor, SelectMultipleControlVal
 
 import { HttpClient } from '../../../../node_modules/@angular/common/http';
 
-
 @Component({
-  selector: 'app-custom-dropdown',
-  templateUrl: './custom-dropdown.component.html',
-  styleUrls: ['./custom-dropdown.component.css'],
+  selector: 'app-custom-radio-1',
+  templateUrl: './custom-radio-1.component.html',
+  styleUrls: ['./custom-radio-1.component.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CustomDropdownComponent),
+      useExisting: forwardRef(() => CustomRadio1Component),
       multi: true,
     }
   ],
 })
-export class CustomDropdownComponent implements ControlValueAccessor, OnInit {
+export class CustomRadio1Component  implements ControlValueAccessor, OnInit {
+
+  @Input() inputName;
   @Input('options') options;
   private _selectValue: any = '';
   private _onTouchedCallback: () => {};
@@ -26,7 +27,7 @@ export class CustomDropdownComponent implements ControlValueAccessor, OnInit {
   private hasValue: any = "";
   private items: any;
   private isDataAvailable: boolean = false;
-  private selvll;
+
   @Output() oo: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private _http: HttpClient, private _renderer: Renderer2) {
@@ -56,7 +57,7 @@ export class CustomDropdownComponent implements ControlValueAccessor, OnInit {
 
   constructOptions(obj) {
     this.items = [];
-    this.items.push({"name": "<select>", "codeValue": "<select>"});
+   // this.items.push({"name": "<select>", "codeValue": "<select>"});
     obj.forEach((item) => {
       const ob: any = {};
       ob['name'] = item.codeValue;
@@ -74,9 +75,9 @@ export class CustomDropdownComponent implements ControlValueAccessor, OnInit {
   set selectValue(value: any) {
     if (value !== this._selectValue) {
       this._inputValue = value;
-      this._onChangeCallback(value);
     }
     this.hasValue = (value != null && value.length > 0)  
+    this._onChangeCallback(value);
      this._onTouchedCallback();
   }
 
@@ -95,13 +96,14 @@ export class CustomDropdownComponent implements ControlValueAccessor, OnInit {
   }
 
   onValueChange(evt) {
-    let selvl = this.items[+evt.target.selectedIndex];
-    this.selvll = selvl;
-    this.oo.emit(this.selvll);
-    if(selvl.codeValue === "<select>") {
-      this.writeValue("");
-      this._onChangeCallback("");
-    }
+    //console.log(evt.target.value);
+    //let selvl = this.items[+evt.target.selectedIndex];
+    //this.selvll = selvl;
+    this.oo.emit(evt.data);
+    // if(selvl.codeValue === "<select>") {
+    //   this.writeValue("");
+    //   this._onChangeCallback("");
+    // }
   }
 
   //From ControlValueAccessor interface

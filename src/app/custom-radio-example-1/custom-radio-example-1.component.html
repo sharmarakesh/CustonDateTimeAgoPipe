@@ -1,0 +1,14 @@
+<div>
+  <h2>Hello {{name}}</h2>
+  <form #form="ngForm" (ngSubmit)="log(form)">
+    <app-custom-radio-1 [options]="state" [inputName]="someValue" (oo)="hello($event, state, true)" name="someValue" [(ngModel)]="someValue" required></app-custom-radio-1>
+    <br>
+    <app-custom-radio-1 [options]="state1" [inputName]="someValue1" (oo)="hello($event, state1, true)" name="someValue1" [(ngModel)]="someValue1" required></app-custom-radio-1>
+    <br>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+  <br>
+  {{ form.value | json }}
+
+  {{ form.valid }}
+</div>

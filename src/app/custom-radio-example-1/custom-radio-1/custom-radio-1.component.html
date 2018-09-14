@@ -1,0 +1,7 @@
+<div *ngIf="isDataAvailable">
+  <div *ngFor="let op of items" class="radio">
+    <label>
+      <input (click)="onValueChange(op)" type="radio" [name]="inputName" [value]="op.codeValue" [(ngModel)]="selectValue"> {{ op.codeValue }}
+    </label>
+  </div>
+</div>

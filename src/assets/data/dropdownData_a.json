@@ -1,3 +1,10 @@
 [
-    "service-worker-1", "service-worker-2", "service-worker-3", "service-worker-3", "service-worker-4", "service-worker-5", "service-worker-6", "service-worker-7"
+    {"codeValue": "service-worker-1", "newItem": "h1"},
+    {"codeValue": "service-worker-2", "newItem": "h2"},
+    {"codeValue": "service-worker-3", "newItem": "h3"},
+    {"codeValue": "service-worker-4", "newItem": "h4"},
+    {"codeValue": "service-worker-5", "newItem": "h5"},
+    {"codeValue": "service-worker-6", "newItem": "h6"},
+    {"codeValue": "service-worker-7", "newItem": "h7"},
+    {"codeValue": "service-worker-8", "newItem": "h8"}
 ]

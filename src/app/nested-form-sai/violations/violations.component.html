@@ -1,0 +1,48 @@
+<!-- <div [ngModelGroup]="name">
+
+  
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+         <div *ngIf="(driverList.violations[0].violationDate.setting === 'show')">
+        <label for="">Date of Viol.</label>
+        
+        <input class="form-control" style="float:none" appInputRestrict="datemask" maxlength="10" (keyup)="dateMask($event)"
+        ngx-mydatepicker name="violationDate" [ngClass]="{'datepicker-disabled': isSaved}"
+        [(ngModel)]="violation.violationDateObj" [options]="myDatePickerOptions"
+        #viViolationDate="ngx-mydatepicker" (click)="!isSaved ? viViolationDate.toggleCalendar() : false" 
+        (ngModelChange)="validateViolationDate(violation.violationDateObj)" />
+      </div>
+    </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+         <div *ngIf="(driverList.violations[0].violationDriver.setting === 'show')">
+        <label for="">Driver</label>
+        <input type="text" [(ngModel)]="violation.violationDriver" name="violation.violationDriver" class="form-control" [disabled]="isSaved" id="" placeholder="Input field">
+      </div>
+    </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+         <div *ngIf="(driverList.violations[0].violationDescription.setting === 'show')">
+        <label for="">Violation Description</label>
+        
+        <select class="form-control" name="violationDescription" [(ngModel)]="violation.violationDescription" [disabled]="isSaved"
+        appSelectOptions [ops]='{lookup: driverList.violations[0].violationDescription.lookup, state: currentState, defaultvalue: driverList.violations[0].violationDescription.default}'></select>
+      </div>
+    </div>
+    </div>
+    
+  </div>
+
+
+<div *ngIf="!isSaved">
+    <button type="button" (click)="saveData()" [disabled]="isSaved" class="btn btn-primary">Save</button>
+    <button type="button" (click)="cancelData()" [disabled]="isSaved" class="btn btn-primary">Cancel</button>
+    </div>
+    <div  *ngIf="isSaved" >
+    <button type="button" (click)="editData()" [disabled]="!isSaved" class="btn btn-primary">Edit</button>
+    <button type="button" [disabled]="!isSaved" (click)="removeData()" class="btn btn-primary">Remove</button>
+    </div>
+  </div> -->

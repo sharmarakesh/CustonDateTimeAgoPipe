@@ -1,0 +1,58 @@
+<!-- <div [ngModelGroup]="name">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+          <div *ngIf="(driverList.compLosses[0].lossDate.setting === 'show')">
+        <label for="">Date of Loss</label>
+        <input class="form-control" style="float:none" appInputRestrict="datemask" maxlength="10" (keyup)="dateMask($event)"
+        ngx-mydatepicker name="lossDate" [ngClass]="{'datepicker-disabled': isSaved}"
+        [(ngModel)]="compLoss.lossDateObj" [options]="myDatePickerOptions"
+        #clLossDate="ngx-mydatepicker" (click)="!isSaved ? clLossDate.toggleCalendar() : false" 
+        (ngModelChange)="validateLossDate(compLoss.lossDateObj)" />
+      </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+          <div *ngIf="(driverList.compLosses[0].lossDriver.setting === 'show')">
+        <label for="">Driver</label>
+        <input type="text" [(ngModel)]="compLoss.lossDriver" name="compLoss.lossDriver" class="form-control" [disabled]="isSaved" id="" placeholder="Input field">
+      </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+          <div *ngIf="(driverList.compLosses[0].lossDescription.setting === 'show')">
+        <label for="">Loss Description</label>
+        <select class="form-control" name="lossDescription" [(ngModel)]="compLoss.lossDescription" [disabled]="isSaved"
+        appSelectOptions [ops]='{lookup: driverList.compLosses[0].lossDescription.lookup, state: currentState, defaultvalue: driverList.compLosses[0].lossDescription.default}'></select>
+      </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+          <div *ngIf="(driverList.compLosses[0].lossAmount.setting === 'show')">
+        <label for=""> Amount</label>
+        <input type="text" [(ngModel)]="compLoss.lossAmount" name="compLoss.lossAmount" class="form-control" [disabled]="isSaved" id="" placeholder="Input field" appInputRestrict="integer" maxlength="6">
+      </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+          <div *ngIf="(driverList.compLosses[0].lossVehicle.setting === 'show')">
+        <label for="">Vehicle Involved</label>
+        <input type="text" [(ngModel)]="compLoss.lossVehicle" name="compLoss.lossVehicle" class="form-control" [disabled]="isSaved" id="" placeholder="Input field">
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isSaved">
+      <button type="button" (click)="saveData()" [disabled]="isSaved" class="btn btn-primary">Save</button>
+      <button type="button" (click)="cancelData()" [disabled]="isSaved" class="btn btn-primary">Cancel</button>
+      </div>
+      <div  *ngIf="isSaved" >
+      <button type="button" (click)="editData()" [disabled]="!isSaved" class="btn btn-primary">Edit</button>
+      <button type="button" [disabled]="!isSaved" (click)="removeData()" class="btn btn-primary">Remove</button>
+      </div>
+    </div> -->

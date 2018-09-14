@@ -1,0 +1,8 @@
+.radio {
+    border: 1px solid #eee;
+    /* width: 150px; */
+    display: inline-block;
+    margin: 5px;
+    padding: 3px 5px 0 5px;
+    border-radius: 5px;
+}

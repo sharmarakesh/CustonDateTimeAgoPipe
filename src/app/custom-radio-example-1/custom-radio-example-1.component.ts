@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-custom-dropdown-example',
-  templateUrl: './custom-dropdown-example.component.html',
-  styleUrls: ['./custom-dropdown-example.component.css']
+  selector: 'app-custom-radio-example-1',
+  templateUrl: './custom-radio-example-1.component.html',
+  styleUrls: ['./custom-radio-example-1.component.css']
 })
-export class CustomDropdownExampleComponent implements OnInit{
-  name:string;
-  someValue: any = 'service-worker-4';
-  someValue1: any = "";
+export class CustomRadioExample1Component implements OnInit {
+  someValue: any = 'service-worker-2';
+  someValue1: any = "test-4";
   state: any = {
     type: 'a',
     defaultValue: this.someValue
@@ -17,14 +16,10 @@ export class CustomDropdownExampleComponent implements OnInit{
     type: 'b',
     defaultValue: null
   };
-  constructor() {
-    this.name = 'Angular2'
+  constructor() { }
+
+  ngOnInit() {
   }
-  
-  ngOnInit(){
-    
-  }
-  
   log(value: any): void {
     console.log('You submitted value: ', value);
   }
@@ -32,10 +27,9 @@ export class CustomDropdownExampleComponent implements OnInit{
   hello(event, modelObject, needModelAssignment=false) {
     console.log(needModelAssignment);
     if(needModelAssignment) {
-      modelObject.defaultValue = event.name;
+      modelObject.defaultValue = event.codeValue;
       console.log(event, modelObject);
       console.log(this.state, this.state1);
     }
   }
-
 }

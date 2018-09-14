@@ -1,0 +1,251 @@
+<!-- <div [ngModelGroup]="name">
+  <div>
+    <div class="row" style="margin-bottom: 1vh">
+      <span *ngIf="i === 0" class="heading" style="margin-left: 1vw">Primary Insured </span>
+      <span *ngIf="i > 0" class="heading" style="margin-left: 1vw">Additional Driver-{{i}} </span>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.firstName.setting === 'show')">
+        <label>{{driverList.firstName.label}}</label>
+        <input required type="text" [(ngModel)]="driver.ezDriverInfo.firstName" name="firstName" class="form-control" appInputRestrict="letters"
+          maxlength="25">
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.lastName.setting === 'show')">
+        <label>{{driverList.lastName.label}}</label>
+        <input required type="text" [(ngModel)]="driver.ezDriverInfo.lastName" name="lastName" class="form-control" appInputRestrict="letters"
+          maxlength="25">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div *ngIf="(driverList.ratedDriver.setting === 'show')">
+        <label>{{driverList.ratedDriver.label}}</label>
+        <select required *ngIf="i === 0" class="textbox-field" name="ratedDriver" id="ratedDriver" [(ngModel)]="driver.ezDriverInfo.ratedDriver"
+          appSelectOptions [ops]='{lookup: driverList.ratedDriver.lookup, state: currentState, defaultvalue: driverList.ratedDriver.default}'
+          disabled></select>
+        <select required *ngIf="i !== 0" class="textbox-field" name="ratedDriver" id="ratedDriver" [(ngModel)]="driver.ezDriverInfo.ratedDriver"
+          appSelectOptions [ops]='{lookup: driverList.ratedDriver.lookup, state: currentState,defaultvalue: driverList.ratedDriver.default}'></select>
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <button (click)="changeValueDrop()">CHANGE VALUE</button>
+      <div *ngIf="(driverList.relationshipToInsured.setting === 'show')">
+        <label>{{driverList.relationshipToInsured.label}}</label>
+        <select class="textbox-field" name="relationshipToInsured" id="relationshipToInsured" [(ngModel)]="driver.ezDriverInfo.relationshipToInsured"
+          appSelectOptions [ops]='{lookup: driverList.relationshipToInsured.lookup, state: currentState,defaultvalue: driverList.relationshipToInsured.default}'></select>
+        <select-dropdown required [selectedData]="driver.ezDriverInfo.relationshipToInsured" [index]="i" (selectionChange)="changeRelationshipToInsuredValue($event)"
+          [options]='{lookup: driverList.relationshipToInsured.lookup, state: currentState,defaultvalue: driverList.relationshipToInsured.default}'></select-dropdown>
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.gender.setting === 'show')">
+        <label>{{driverList.gender.label}}</label>
+        <div class="policy-wrapper">
+          <div [ngClass]="{'col-xs-6 radio-style-checked': currentSelection === 1, 'col-xs-6 radio-style': currentSelection != 1 }">
+            <input required type="radio" (click)="changeSelection(1)" name=gender value="Male" id="gender" [(ngModel)]='driver.ezDriverInfo.gender'
+            /> Male
+          </div>
+          <div [ngClass]="{'col-xs-6 radio-style-checked': currentSelection === 2, 'col-xs-6 radio-style': currentSelection != 2 }">
+            <input required type="radio" (click)="changeSelection(2)" name=gender value="Female" id="gender" [(ngModel)]='driver.ezDriverInfo.gender'
+            /> Female
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.maritalStatus.setting === 'show')">
+        <label>{{driverList.maritalStatus.label}}</label>
+               <app-custom-dropdown [options]="{lookup: driverList.maritalStatus.lookup, state: currentState,defaultvalue: driverList.maritalStatus.default}"
+          name="driver.ezDriverInfo.maritalStatus" [(ngModel)]="driver.ezDriverInfo.maritalStatus" required></app-custom-dropdown>
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.dateOfBirth.setting === 'show')">
+        <label>{{driverList.dateOfBirth.label}}</label>
+        <input required class="form-control" style="float:none" appInputRestrict="datemask" maxlength="10" (keyup)="dateMask($event)"
+          ngx-mydatepicker name='dateOfBirth-{{i}}' [(ngModel)]="driver.dateOfBirthObj" [options]="myDatePickerOptions" #adDateOfBirth="ngx-mydatepicker"
+          (click)="adDateOfBirth.toggleCalendar()" (ngModelChange)="validateDateOfBirth(driver.dateOfBirthObj, i)" />
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.dlStatus.setting === 'show')">
+        <label>{{driverList.dlStatus.label}}</label>
+        <select-dropdown required [selectedData]="driver.ezDriverInfo.dlStatus" [index]="i" (selectionChange)="changeDlStatus($event)"
+          [options]='{lookup: driverList.dlStatus.lookup, state: currentState,defaultvalue: driverList.dlStatus.default}'></select-dropdown>
+        <select required class="textbox-field" name="dlStatus" id="dlStatus" [(ngModel)]="driver.ezDriverInfo.dlStatus" appSelectOptions
+          [ops]='{lookup: driverList.dlStatus.lookup, state: currentState,defaultvalue: driverList.dlStatus.default}' (ngModelChange)="validateDlStatus(driver.ezDriverInfo.dlStatus,i)"></select>
+
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.ageLicensed.setting === 'show')">
+        <label>{{driverList.ageLicensed.label}}</label>
+        <select-dropdown required [selectedData]="driver.ezDriverInfo.ageLicensed" [index]="i" (selectionChange)="changeAgeLicenced($event)"
+          [options]='{lookup: driverList.ageLicensed.lookup, state: currentState,defaultvalue: driverList.ageLicensed.default}'></select-dropdown>
+        <select required class="textbox-field" name="ageLicensed" id="ageLicensed" [(ngModel)]="driver.ezDriverInfo.ageLicensed"
+          appSelectOptions [ops]='{lookup: driverList.ageLicensed.lookup, state: currentState,defaultvalue: driverList.ageLicensed.default}'
+          (ngModelChange)="validateAgeLicenced(driver.ezDriverInfo.ageLicensed,driver.ezDriverInfo.dlStatus,i)"></select>
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+
+      <div *ngIf="driver.ezDriverInfo.ageLicensed==='21+'">
+        <label>{{driverList.dateLicensed.label}}</label>
+        <input required class="form-control" style="float:none" appInputRestrict="datemask" maxlength="10" (keyup)="dateMask($event)"
+          ngx-mydatepicker name='dateLicensed-{{i}}' [(ngModel)]="driver.dateLicensedObj" [options]="myDatePickerOptions" #adDateLicensed="ngx-mydatepicker"
+          (click)="adDateLicensed.toggleCalendar()" (ngModelChange)="validateDateLicensed(driver.dateLicensedObj, i)" />
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.dlNumber.setting === 'show')">
+        <label>{{driverList.dlNumber.label}}</label>
+        <input required type="text" [(ngModel)]='driver.ezDriverInfo.dlNumber' name='dlNumber' class="form-control" id="" appInputRestrict="alphanumeric"
+          maxlength="30">
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.sdipPoints.setting === 'show')">
+        <label>{{driverList.sdipPoints.label}}</label>
+        <input required type="text" [(ngModel)]='driver.ezDriverInfo.sdipPoints' name='sdipPoints' class="form-control" id="" appInputRestrict="integer"
+          maxlength="2">
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.licenseState.setting === 'show')">
+        <label>{{driverList.licenseState.label}}</label>
+        <select required class="textbox-field" name="licenseState" [(ngModel)]="driver.ezDriverInfo.licenseState" appSelectOptions
+          [ops]='{lookup: driverList.licenseState.lookup, state: currentState,defaultvalue: driverList.licenseState.default}'></select>
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.licenseSuspended.setting === 'show')">
+        <label>{{driverList.licenseSuspended.label}}</label>
+        <select required class="textbox-field" name="licenseSuspended" id="ratedDlicenseSuspendedriver" [(ngModel)]="driver.ezDriverInfo.licenseSuspended"
+          appSelectOptions [ops]='{lookup: driverList.licenseSuspended.lookup, state: currentState,defaultvalue: driverList.licenseSuspended.default}'></select>
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.sr22Required.setting === 'show')">
+        <label>{{driverList.sr22Required.label}}</label>
+        <app-custom-dropdown [options]="{lookup: driverList.sr22Required.lookup, state: currentState,defaultvalue: driverList.sr22Required.default}"
+          name="driver.ezDriverInfo.sr22Required" [(ngModel)]="driver.ezDriverInfo.sr22Required" required></app-custom-dropdown>
+       </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.fr44Required.setting === 'show')">
+        <label>{{driverList.fr44Required.label}}</label>
+        <select required class="textbox-field" name="fr44Required" [(ngModel)]="driver.ezDriverInfo.fr44Required" appSelectOptions
+          [ops]='{lookup: driverList.fr44Required.lookup, state: currentState,defaultvalue: driverList.fr44Required.default}'></select>
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.education.setting === 'show')">
+        <label>{{driverList.education.label}}</label>
+        <select required class="textbox-field" name="education" [(ngModel)]="driver.ezDriverInfo.education" appSelectOptions [ops]='{lookup: driverList.education.lookup, state: currentState,defaultvalue: driverList.education.default}'></select>
+
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.occupationIndustry.setting === 'show')">
+        <label>{{driverList.occupationIndustry.label}}</label>
+        <select required class="textbox-field" name="occupationIndustry" [(ngModel)]="driver.ezDriverInfo.occupationIndustry" appSelectOptions
+          [ops]='{lookup: driverList.occupationIndustry.lookup, state: currentState,defaultvalue: driverList.occupationIndustry.default}'
+          (blur)="onSelectChangeOccupationIndustry(driver.ezDriverInfo.occupationIndustry, i)"></select>
+
+      </div>
+    </div>
+    <div *ngIf="driver.ezDriverInfo.showOccupationTitle" class="col-sm-12 form-group">
+      <div *ngIf="(driverList.occupationTitle.setting === 'show')">
+        <label>{{driverList.occupationTitle.label}}</label>
+        <select required class="textbox-field" name="occupationTitle" [(ngModel)]="driver.ezDriverInfo.occupationTitle">
+          <option *ngFor="let title of driver.ezDriverInfo.occupationTitleList" [value]="title">{{title}}</option>
+        </select>
+
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.defDriverCourseDate.setting === 'show')">
+        <label>{{driverList.defDriverCourseDate.label}}</label>
+        <input required class="form-control" style="float:none" appInputRestrict="datemask" maxlength="10" (keyup)="dateMask($event)"
+          ngx-mydatepicker name="defDriverCourseDate" name='defDriverCourseDate-{{i}}' [(ngModel)]="driver.defDriverCourseDateObj"
+          [options]="myDatePickerOptions" #adDefDriverCourseDate="ngx-mydatepicker" (click)="adDefDriverCourseDate.toggleCalendar()"
+          (ngModelChange)="validateDefDriverCourseDate(driver.defDriverCourseDateObj, i)" />
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driver.ezDriverInfo.occupationIndustry === 'Student')">
+        <label>{{driverList.goodStudent.label}}</label>
+        <select required class="textbox-field" name="goodStudent" id="goodStudent" [(ngModel)]="driver.ezDriverInfo.goodStudent"
+          appSelectOptions [ops]='{lookup: driverList.goodStudent.lookup, state: currentState,defaultvalue: driverList.goodStudent.default}'></select>
+
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driver.ezDriverInfo.occupationIndustry === 'Student')">
+        <label>{{driverList.distantStudent.label}}</label>
+        <select required class="textbox-field" name="distantStudent" id="distantStudent" [(ngModel)]="driver.ezDriverInfo.distantStudent"
+          appSelectOptions [ops]='{lookup: driverList.distantStudent.lookup, state: currentState,defaultvalue: driverList.distantStudent.default}'></select>
+
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.driverEducation.setting === 'show')">
+        <label>{{driverList.driverEducation.label}}</label>
+        <select required class="textbox-field" name="driverEducation" id="driverEducation" [(ngModel)]="driver.ezDriverInfo.driverEducation"
+          appSelectOptions [ops]='{lookup: driverList.driverEducation.lookup, state: currentState,defaultvalue: driverList.driverEducation.default}'></select>
+
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.goodDriver.setting === 'show')">
+        <label>{{driverList.goodDriver.label}}</label>
+        <select required class="textbox-field" name="goodDriver" id="goodDriver" [(ngModel)]="driver.ezDriverInfo.goodDriver" appSelectOptions
+          [ops]='{lookup: driverList.goodDriver.lookup, state: currentState,defaultvalue: driverList.goodDriver.default}'></select>
+
+      </div>
+    </div>
+    <div class="col-sm-12 form-group">
+      <div *ngIf="(driverList.matureDriver.setting === 'show')">
+        <label>{{driverList.matureDriver.label}}</label>
+        <select required class="textbox-field" name="matureDriver" id="matureDriver" [(ngModel)]="driver.ezDriverInfo.matureDriver"
+          appSelectOptions [ops]='{lookup: driverList.matureDriver.lookup, state: currentState,defaultvalue: driverList.matureDriver.default}'></select>
+      </div>
+    </div>
+  </div>
+
+  <div class="heading row">
+    <h4 style="margin-left: 1vw">Incidents</h4>
+  </div>
+  <div class="heading row">
+    <h4 class="col-sm-6">Accidents</h4>
+    <button type="button" (click)="addAccident(driver, i)" class="col-sm-6 btn btn-default" [disabled]="accidentsButtonStates[i]">Add an Accident</button>
+  </div>
+  <div *ngFor="let accident of driver.ezDriverInfo.accidents; let accIdx = index;">
+
+    <app-accidents [driverIndex]="i" [accdientIndex]="accIdx" [accident]='accident' [driverId]="driver.ezDriverInfo.id" [quoteId]="ezDriverInfo.quoteId"
+      [accidentId]="driver.ezDriverInfo.accidents.id" (removeAccidentData)="removeAccidentData($event)" (accidentSavedEvent)="accidentSavedEvent($event)"
+      [driverList]="driverList" [currentState]="currentState"></app-accidents>
+  </div>
+  <div class="heading row">
+    <h4 class="col-sm-6">Violations</h4>
+    <button type="button" (click)="addViolation(driver, i)" class="col-sm-6 btn btn-default" [disabled]="violationButtonStates[i]">Add a Violation</button>
+  </div>
+  <div *ngFor="let violation of driver.ezDriverInfo.violations;let accIdx = index;">
+    <app-violations [driverIndex]="i" [violationIndex]="accIdx" [violation]='violation' [driverId]="driver.ezDriverInfo.id" [quoteId]="ezDriverInfo.quoteId"
+      [violationtId]="driver.ezDriverInfo.violations.id" (removeViolationData)="removeViolationData($event)" (violationSavedEvent)="violationSavedEvent($event)"
+      [driverList]="driverList" [currentState]="currentState"></app-violations>
+  </div>
+  <div class="heading row">
+    <h4 class="col-sm-6">Comp Losses</h4>
+    <button type="button" (click)="addCompLoss(driver, i)" class="col-sm-6 btn btn-default" [disabled]="compLossButtonStates[i]">Add a Loss</button>
+  </div>
+  <div *ngFor="let comploss of driver.ezDriverInfo.compLosses;let accIdx = index;">
+    <app-complosses [driverIndex]="i" [compLossIndex]="accIdx" [compLoss]='comploss' [driverId]="driver.ezDriverInfo.id" [quoteId]="ezDriverInfo.quoteId"
+      [compLossId]="driver.ezDriverInfo.compLosses.id" (removeCompLossData)="removeCompLossData($event)" (compLossSavedEvent)="compLossSavedEvent($event)"
+      [driverList]="driverList" [currentState]="currentState"></app-complosses>
+  </div>
+  <div class="heading row">
+    <h4 class="col-sm-6">Additional Carrier Questions</h4>
+  </div>
+</div> -->

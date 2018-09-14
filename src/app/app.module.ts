@@ -31,6 +31,19 @@ import { DynamicFormTestComponent } from './dynamic-forms/dynamic-form-test/dyna
 import { DynamicFormTest1Component } from './dynamic-forms/dynamic-form-test-1/dynamic-form-test-1.component';
 import { CustomDropdownExampleComponent } from './custom-dropdown-example/custom-dropdown-example.component';
 import { CustomDropdownComponent } from './custom-dropdown-example/custom-dropdown/custom-dropdown.component';
+import { NestedFormSaiComponent } from './nested-form-sai/nested-form-sai.component';
+import { DriverComponent } from './nested-form-sai/driver/driver.component';
+// import { AccidentsComponent } from './nested-form-sai/accidents/accidents.component';
+// import { ViolationsComponent } from './nested-form-sai/violations/violations.component';
+// import { ComplossesComponent } from './nested-form-sai/complosses/complosses.component';
+import { NestedFormExampleComponent } from './nested-form-example/nested-form-example.component';
+import { ChildComponentComponent } from './nested-form-example/child-component/child-component.component';
+import { CustomRadioExampleComponent } from './custom-radio-example/custom-radio-example.component';
+import { CustomSwitchExampleComponent } from './custom-switch-example/custom-switch-example.component';
+import { SwitchComponent } from './custom-switch-example/switch/switch.component';
+import { CustomRadioComponent } from './custom-radio-example/custom-radio/custom-radio.component';
+import { CustomRadioExample1Component } from './custom-radio-example-1/custom-radio-example-1.component';
+import { CustomRadio1Component } from './custom-radio-example-1/custom-radio-1/custom-radio-1.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +64,20 @@ import { CustomDropdownComponent } from './custom-dropdown-example/custom-dropdo
     DynamicFormTestComponent,
     DynamicFormTest1Component,
     CustomDropdownExampleComponent,
-    CustomDropdownComponent
+    CustomDropdownComponent,
+    NestedFormSaiComponent,
+    DriverComponent,
+    // AccidentsComponent,
+    // ViolationsComponent,
+    // ComplossesComponent,
+    NestedFormExampleComponent,
+    ChildComponentComponent,
+    CustomRadioExampleComponent,
+    CustomSwitchExampleComponent,
+    SwitchComponent,
+    CustomRadioComponent,
+    CustomRadioExample1Component,
+    CustomRadio1Component
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,11 @@
 <div>
   <h2>Hello {{name}}</h2>
   <form #form="ngForm" (ngSubmit)="log(form)">
-    <app-custom-dropdown [options]="state" name="someValue" [(ngModel)]="someValue" required></app-custom-dropdown>
+    <app-custom-dropdown [options]="state " (oo)="hello($event, state, true)" name="someValue" [(ngModel)]="someValue" required></app-custom-dropdown>
+    <br>
+    <app-custom-dropdown [options]="state1" (oo)="hello($event, state1, true)"  name="someValue1" [(ngModel)]="someValue1" required></app-custom-dropdown>
+    <br>
+    <app-custom-dropdown [options]="state1" (oo)="hello($event, state1)" name="someValue1" [(ngModel)]="someValue1" required></app-custom-dropdown>
     <br>
     <app-custom-dropdown [options]="state1" name="someValue1" [(ngModel)]="someValue1" required></app-custom-dropdown>
     <br>
@@ -18,4 +22,6 @@
   </form>
   <br>
   {{ form.value | json }}
+
+  {{ form.valid }}
 </div>

@@ -1,0 +1,20 @@
+<!-- <div *ngIf="showdriver" class="rolling-wrapper">
+  <button *ngIf="newDriversList.length > 1" [disabled]="currentPage === 0" class="rolling-prev" (click)="previous('previous')">
+      <<</button>
+          <div class="rolling-container" [id]="rollingContainerID">
+              <div class="roller">
+                  <form #driverForm="ngForm">
+                  <div class="rolling-content" *ngFor="let driver of newDriversList; let i = index">
+                      <button type="button" *ngIf="i > 0" (click)="removeDriver(i)" class="btn btn-danger">Remove Driver</button>
+                      <div malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+                          <app-driver [driver]="driver" [i]="i" [driverList]="driverList" [currentState]="currentState"></app-driver>
+                  </div>
+                  
+                  <button type="button" (click)="addDriver(i)" class="btn btn-success">Add Driver</button>
+              </div>
+            </form>
+    
+          </div>
+          <button *ngIf="newDriversList.length > 1" [disabled]="currentPage === newDriversList.length - 1" class="rolling-next" (click)="next('next')">>></button>
+       
+</div> -->
